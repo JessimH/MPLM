@@ -16,6 +16,7 @@ class CreateModelesTable extends Migration
         Schema::create('modeles', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('colors')->nullable();
             $table->timestamps();
 
             $table->foreignId('marques_id')

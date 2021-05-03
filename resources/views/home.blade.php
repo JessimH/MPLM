@@ -76,30 +76,16 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach($sneakers as $sneaker)
                             <tr>
-                                <th scope="row">1</th>
-                                <td>Jordan retro 11 low</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td>@mdo</td>
-                                <td><a href="">supprimer</a></td>
-                            </tr>
-                            <tr>
-                            <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
-                                <td>Jacob</td>
-                                <td><a href="">supprimer</a></td>
-                            </tr>
-                            <tr>
-                            <th scope="row">3</th>
-                                <td>Larry</td>
-                                <td>the Bird</td>
-                                <td>@twitter</td>
-                                <td>Jacob</td>
-                                <td><a href="">supprimer</a></td>
-                            </tr>
+                                <th scope="row">{{$sneaker->id}}</th>
+                                <td>{{$sneaker->name}}</td>
+                                <th scope="col">{{$sneaker->color}}</th>
+                                <th scope="col">{{$sneaker->modeles->name}}</th>
+                                <th scope="col">{{$sneaker->marques->name}}</th>
+                                <th scope="col">Supprimer</th>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

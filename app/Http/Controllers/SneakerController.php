@@ -6,6 +6,7 @@ use App\Models\Sneaker;
 use App\Models\Modele;
 use App\Models\File;
 use App\Models\Marque;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 
 class SneakerController extends Controller
