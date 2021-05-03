@@ -28,3 +28,11 @@ Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])-
 
 Route::get('/add/sneaker', 'App\Http\Controllers\SneakerController@create')->middleware(['auth']);
 Route::post('/add/sneaker', 'App\Http\Controllers\SneakerController@store')->middleware(['auth']);
+
+Route::get('/add/modele', 'App\Http\Controllers\ModeleController@create')->middleware(['auth']);
+
+Route::post('/add/modele', 'App\Http\Controllers\ModeleController@store')->middleware(['auth']);
+
+Route::get('/add/marque', 'App\Http\Controllers\MarqueController@create')->middleware(['auth']);
+
+Route::post('/add/marque', 'App\Http\Controllers\MarqueController@store')->middleware(['auth']);

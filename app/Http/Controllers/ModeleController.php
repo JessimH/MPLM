@@ -24,6 +24,7 @@ class ModeleController extends Controller
      */
     public function create()
     {
+        return view('addModele'); 
         //
     }
 
@@ -36,6 +37,8 @@ class ModeleController extends Controller
     public function store(Request $request)
     {
         //
+        dd($request['name']);
+        return view('addModele'); 
     }
 
     /**

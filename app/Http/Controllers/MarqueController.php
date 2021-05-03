@@ -24,6 +24,7 @@ class MarqueController extends Controller
      */
     public function create()
     {
+        return view('addMarque'); 
         //
     }
 
@@ -36,6 +37,11 @@ class MarqueController extends Controller
     public function store(Request $request)
     {
         //
+        Marque::create($validatedAttributes = request()->validate([
+            'name' => 'required'
+        ]));
+        return redirect('/dashboard')
+                ->with('success','Votre marque à bien été créée.');
     }
 
     /**

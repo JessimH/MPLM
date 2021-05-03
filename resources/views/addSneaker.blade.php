@@ -11,7 +11,7 @@
                 <form action="/add/sneaker" method="POST" enctype="multipart/form-data">
                 {{ csrf_field() }}
   <div class="form-group"> 
-    <label for="exampleFormControlInput1">Nom de la sneaker</label>
+    <label for="name">Nom de la sneaker</label>
     <input type="text" name="name" class="form-control" id="name" placeholder="Jordan 11 retro Low Legend Blue">
   </div>
   <div class="form-group">

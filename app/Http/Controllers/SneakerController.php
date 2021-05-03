@@ -54,7 +54,7 @@ class SneakerController extends Controller
      * @param  \App\Models\Sneakers  $sneakers
      * @return \Illuminate\Http\Response
      */
-    public function show(Sneakers $sneakers)
+    public function show(Sneaker $sneakers)
     {
         //
     }
@@ -65,7 +65,7 @@ class SneakerController extends Controller
      * @param  \App\Models\Sneakers  $sneakers
      * @return \Illuminate\Http\Response
      */
-    public function edit(Sneakers $sneakers)
+    public function edit(Sneaker $sneakers)
     {
         //
     }
@@ -77,7 +77,7 @@ class SneakerController extends Controller
      * @param  \App\Models\Sneakers  $sneakers
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Sneakers $sneakers)
+    public function update(Request $request, Sneaker $sneakers)
     {
         //
     }
@@ -88,7 +88,7 @@ class SneakerController extends Controller
      * @param  \App\Models\Sneakers  $sneakers
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Sneakers $sneakers)
+    public function destroy(Sneaker $sneakers)
     {
         //
     }
