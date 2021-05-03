@@ -19,11 +19,11 @@ class CreateSneakersTable extends Migration
             $table->string('color');
             $table->timestamps();
 
-            $table->foreignId('modele_id')
+            $table->foreignId('modeles_id')
             ->constrained()
             ->onDelete('cascade');
 
-            $table->foreignId('marque_id')
+            $table->foreignId('marques_id')
                 ->constrained()
                 ->onDelete('cascade');
         });

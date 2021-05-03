@@ -17,21 +17,17 @@
   <div class="form-group">
     <label for="modele">Modèle</label>
     <select class="form-control" name="modele" id="modele">
-      <option>Air Jordan Low</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
+      @foreach($modeles as $modele)
+        <option>{{$modele->id}}: {{$modele->name}}</option>
+      @endforeach
     </select>
   </div>
   <div class="form-group">
     <label for="marque">Marque</label>
     <select class="form-control" name="marque" id="marque">
-      <option>Nike</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
+      @foreach($marques as $marque)
+        <option>{{$marque->id}}: {{$marque->name}}</option>
+      @endforeach
     </select>
   </div>
   <div class="form-group"> 

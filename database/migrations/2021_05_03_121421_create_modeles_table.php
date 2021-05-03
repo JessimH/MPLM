@@ -18,7 +18,7 @@ class CreateModelesTable extends Migration
             $table->string('name');
             $table->timestamps();
 
-            $table->foreignId('marque_id')
+            $table->foreignId('marques_id')
                 ->constrained()
                 ->onDelete('cascade');
         });

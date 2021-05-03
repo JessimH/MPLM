@@ -18,23 +18,13 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Nike</td>
-                            <td><a href="">supprimer</a></td>
-                        </tr>
-                        <tr>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Nike</td>
-                            <td><a href="">supprimer</a></td>
-                        </tr>
-                        <tr>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Nike</td>
-                            <td><a href="">supprimer</a></td>
-                        </tr>
+                        @foreach($marques as $marque)
+                            <tr>
+                                <th scope="row">{{$marque->id}}</th>
+                                <td>{{$marque->name}}</td>
+                                <td><a href="">supprimer</a></td>
+                                </tr>
+                        @endforeach
                     </tbody>
                     </table>
                 </div>
@@ -55,23 +45,14 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Jordan retro 11 low</td>
-                            <td>Nike</td>
-                            <td><a href="">supprimer</a></td>
-                        </tr>
-                        <tr>
-                        <th scope="row">1</th>
-                            <td>Jordan retro 11 low</td>
-                            <td>Nike</td>
-                            <td><a href="">supprimer</a></td>
-                        </tr>
-                        <tr>
-                        <th scope="row">1</th>
-                            <td>Jordan retro 11 low</td>
-                            <td>Nike</td>
-                            <td><a href="">supprimer</a></td>
+                    @foreach($modeles as $modele)
+                            <tr>
+                                <th scope="row">{{$modele->id}}</th>
+                                <td>{{$modele->name}}</td>
+                                <th scope="col">{{$modele->marques->name}}</th>
+                                <td><a href="">supprimer</a></td>
+                                </tr>
+                        @endforeach
                     </tbody>
                     </table>
                 </div>

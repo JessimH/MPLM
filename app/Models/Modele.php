@@ -12,4 +12,14 @@ class Modele extends Model
         'name',
         'marque_id',
     ];
+
+    public function marques()
+    {
+        return $this->belongsTo(Marque::class);
+    }
+
+    public function sneakers()
+    {
+        return $this->hasMany(Sneaker::class);
+    }
 }

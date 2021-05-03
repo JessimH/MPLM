@@ -11,4 +11,14 @@ class Marque extends Model
     protected $fillable = [
         'name',
     ];
+
+    public function modeles()
+    {
+        return $this->hasMany(Modele::class);
+    }
+
+    public function sneakers()
+    {
+        return $this->hasMany(Sneaker::class);
+    }
 }

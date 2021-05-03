@@ -29,7 +29,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        Post::get()
-        return view('home');
+        $modeles = Modele::get();
+        $sneakers = Sneaker::get();
+        $marques = Marque::get();
+
+        return view('home', compact(['modeles', 'sneakers', 'marques']));
     }
 }

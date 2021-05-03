@@ -14,4 +14,14 @@ class Sneaker extends Model
         'modele_id',
         'marque_id'
     ];
+
+    public function modeles()
+    {
+        return $this->belongsTo(Modele::class);
+    }
+
+    public function marques()
+    {
+        return $this->belongsTo(Marque::class);
+    }
 }

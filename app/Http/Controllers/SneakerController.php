@@ -44,8 +44,22 @@ class SneakerController extends Controller
     public function store(Request $request)
     {
         //
-        dd($request['name']);
-        return view('addSneaker'); 
+        $request->validate([
+            'name' => 'required',
+            'color' => 'required',
+            'marque' => 'required'
+        ]);
+
+        $marque_id = intval($request['marque']);
+
+        $sneaker = new Sneaker();
+        $sneaker->name = $request['name'];
+        $sneaker->marques_id = $marque_id;
+    
+        $sneaker->save();
+
+        return redirect('/dashboard')
+                ->with('success','Votre modèle à bien été créée.');
     }
 
     /**
