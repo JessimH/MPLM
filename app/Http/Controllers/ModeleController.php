@@ -57,7 +57,7 @@ class ModeleController extends Controller
         $modele->save();
 
         return redirect('/dashboard')
-                ->with('success','Votre modèle à bien été créée.');
+                ->with('success','Votre modèle à bien été ajouté.');
     }
 
     /**

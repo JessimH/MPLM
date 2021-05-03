@@ -45,7 +45,7 @@ class MarqueController extends Controller
             'name' => 'required'
         ]));
         return redirect('/dashboard')
-                ->with('success','Votre marque à bien été créée.');
+                ->with('success','Votre marque à bien été ajouté.');
     }
 
     /**

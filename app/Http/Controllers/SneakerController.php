@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Sneaker;
+use App\Models\Modele;
+use App\Models\File;
+use App\Models\Marque;
 use Illuminate\Http\Request;
 
 class SneakerController extends Controller
@@ -14,8 +17,21 @@ class SneakerController extends Controller
      */
     public function index($id)
     {
-        //retourner la snkrs avec le bon id
-        return view('sneaker'); 
+        $sneaker = Sneaker::where('id', $id)
+                        ->first();
+        $result = $sneaker;
+        $result_images = rtrim($result->filenames, ' ]');
+        $result_images = substr($result_images, 1);
+        $result_images = explode(",", $result_images);
+        $images = [];
+        foreach ($result_images as $image){
+            $image = rtrim($image, '"');
+            $image = substr($image, 1);
+            array_push($images, $image);
+        }
+        // $images = $result->filenames;
+        // dd($images);
+        return view('sneaker', compact('sneaker', 'images'));
     }
 
     public function color(Request $request)
@@ -32,7 +48,11 @@ class SneakerController extends Controller
     public function create()
     {
         //
-        return view('addSneaker'); 
+        $modeles = Modele::get();
+        $sneakers = Sneaker::get();
+        $marques = Marque::get();
+
+        return view('addSneaker', compact(['modeles', 'sneakers', 'marques']));
     }
 
     /**
@@ -47,19 +67,45 @@ class SneakerController extends Controller
         $request->validate([
             'name' => 'required',
             'color' => 'required',
-            'marque' => 'required'
+            'modele' => 'required',
+            'marque' => 'required',
+            'filenames' => 'required',
+            'filenames.*' => 'mimes:png,jpeg,jpg,svg'
         ]);
 
         $marque_id = intval($request['marque']);
+        $modele_id = intval($request['marque']);
 
         $sneaker = new Sneaker();
         $sneaker->name = $request['name'];
+        $sneaker->color = $request['color'];
         $sneaker->marques_id = $marque_id;
+        $sneaker->modeles_id = $modele_id;
     
         $sneaker->save();
 
+        $dernierSneaker = Sneaker::latest()->first();
+
+        $i = 0;
+        $id = $dernierSneaker->id;
+        foreach ($request->file('filenames') as $file) {
+            $name = $dernierSneaker['id'].$i.'.'.$file->extension();
+            $file->move(public_path().'/images/', $name);
+            $data[] = $name;
+            $i += 1;
+        }
+
+        $updateSneaker = Sneaker::where('id', $id)
+                        ->first(); // this point is the most important to change
+        $updateSneaker->filenames = $data;
+        $updateSneaker->save();
+
+        $file= new File();
+        $file->filenames=json_encode($data);
+        $file->save();
+
         return redirect('/dashboard')
-                ->with('success','Votre modèle à bien été créée.');
+                ->with('success','Votre Sneaker à bien été ajouté.');
     }
 
     /**
