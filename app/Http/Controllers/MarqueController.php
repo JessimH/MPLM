@@ -88,8 +88,18 @@ class MarqueController extends Controller
      * @param  \App\Models\Marque  $marque
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Marque $marque)
+    public function destroy($id)
     {
-        //
+        $marqueToDelete = Marque::where('id', $id)->get();
+
+        if(count($marqueToDelete)>0){
+            Marque::where('id', $id )->delete();
+
+            return redirect('/dashboard')->with('success','Votre marque a bien été suprimé de la Base de données !');
+        }
+        else{
+            return redirect('/dashboard')->with('error','La marque est introuvable, contactez votre administrateur de base de données.');
+        } 
+        
     }
 }

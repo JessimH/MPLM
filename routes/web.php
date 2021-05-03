@@ -36,3 +36,7 @@ Route::post('/add/modele', 'App\Http\Controllers\ModeleController@store')->middl
 Route::get('/add/marque', 'App\Http\Controllers\MarqueController@create')->middleware(['auth']);
 
 Route::post('/add/marque', 'App\Http\Controllers\MarqueController@store')->middleware(['auth']);
+
+Route::get('/delete/marque/{id}', 'App\Http\Controllers\MarqueController@destroy')->middleware(['auth']);;
+Route::get('/delete/modele/{id}', 'App\Http\Controllers\ModeleController@destroy')->middleware(['auth']);;
+Route::get('/delete/sneaker/{id}', 'App\Http\Controllers\SneakerController@destroy')->middleware(['auth']);;

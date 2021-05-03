@@ -100,8 +100,18 @@ class ModeleController extends Controller
      * @param  \App\Models\Modele  $modele
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Modele $modele)
+    public function destroy($id)
     {
-        //
+        $modeleToDelete = Modele::where('id', $id)->get();
+
+        if(count($modeleToDelete)>0){
+            Modele::where('id', $id )->delete();
+
+            return redirect('/dashboard')->with('success','Votre modèle a bien été suprimé de la Base de données !');
+        }
+        else{
+            return redirect('/dashboard')->with('error','La modèle est introuvable, contactez votre administrateur de base de données.');
+        } 
+        
     }
 }

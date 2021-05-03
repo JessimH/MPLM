@@ -22,7 +22,7 @@
                             <tr>
                                 <th scope="row">{{$marque->id}}</th>
                                 <td>{{$marque->name}}</td>
-                                <td><a href="">supprimer</a></td>
+                                <td><a href="/delete/marque/{{$marque->id}}">supprimer</a></td>
                                 </tr>
                         @endforeach
                     </tbody>
@@ -50,7 +50,7 @@
                                 <th scope="row">{{$modele->id}}</th>
                                 <td>{{$modele->name}}</td>
                                 <th scope="col">{{$modele->marques->name}}</th>
-                                <td><a href="">supprimer</a></td>
+                                <td><a href="/delete/modele/{{$modele->id}}">supprimer</a></td>
                                 </tr>
                         @endforeach
                     </tbody>
@@ -83,7 +83,7 @@
                                 <th scope="col">{{$sneaker->color}}</th>
                                 <th scope="col">{{$sneaker->modeles->name}}</th>
                                 <th scope="col">{{$sneaker->marques->name}}</th>
-                                <th scope="col">Supprimer</th>
+                                <td><a href="/delete/sneaker/{{$sneaker->id}}">supprimer</a></td>
                                 </tr>
                             @endforeach
                         </tbody>

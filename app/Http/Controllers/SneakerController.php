@@ -149,8 +149,18 @@ class SneakerController extends Controller
      * @param  \App\Models\Sneakers  $sneakers
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Sneaker $sneakers)
+    public function destroy($id)
     {
-        //
+        $snkrToDelete = Sneaker::where('id', $id)->get();
+
+        if(count($snkrToDelete)>0){
+            Sneaker::where('id', $id )->delete();
+
+            return redirect('/dashboard')->with('success','Votre Sneaker a bien été suprimé de la Base de données !');
+        }
+        else{
+            return redirect('/dashboard')->with('error','La sneaker est introuvable, contactez votre administrateur de base de données.');
+        } 
+        
     }
 }
