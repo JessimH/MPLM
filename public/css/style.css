@@ -1,0 +1,265 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+a:hover{
+    color: black;
+}
+
+.navbar-toggler{
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.navbar-toggler-icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.nav{
+    margin-bottom: 50px;
+    background-color: #48BC84;
+    padding: 20px 0px 20px 0px;
+    color: white;
+    box-shadow: 3px -5px 28px 2px rgba(0,0,0,0.41);
+}
+.nav a{
+    color: white;
+    font-weight: bold;
+}
+
+.dropdown a{
+    color: black;
+}
+
+.dropdown a:hover{
+    color: #48BC84;
+}
+
+.dropdown-menu{
+    border: none;
+    padding: 10px;
+}
+
+
+.dropdown-menu li a{
+    border-radius: 5px;
+}
+
+.search{
+    padding: 5px 20px 5px 20px;
+    border-radius: 999px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+}
+
+.search input {
+    border: none;
+    outline: none;
+    margin-right: 10px;
+}
+
+.search button {
+    border: none;
+    background-color: transparent;
+    color: gray;
+    transition: 0.2s ease-in-out;
+}
+
+.search:hover{
+    color: #48BC84;
+    box-shadow: 1px 1px 18px 2px #66ffb5a8;
+}
+
+.search button:hover{
+    color: #48BC84;
+}
+
+
+.row>*{
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.row{
+    justify-content: space-evenly;
+}
+
+.section-home {
+    margin-bottom: 40px;
+}
+
+.section-title{
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.section-title .draw {
+    background-color: #48BC84;
+    border-radius: 5px;
+    width: 10px;
+    height: 30px;
+    margin-right: 5px;
+}
+
+.snkr-card{
+    margin-bottom: 20px;
+    width: 160px;
+    border: 1px solid rgb(214, 214, 214);
+    display: flex;
+    flex-direction: column;
+    transition: 0.2s ease-in-out;
+    box-shadow: 0px 1px 1px rgba(41, 41, 41, 0.13);
+}​
+
+.snkr-img{
+    width: 100%;
+}
+
+.snkr-pic{
+    height: 160px;
+}
+
+.snkr-picture{
+    height: 40vh;
+}
+
+.snkr-product{
+    width: 40vh;
+    border: 1px solid rgb(214, 214, 214);
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    border-radius: 5px;
+    transition: 0.2s ease-in-out;
+}
+
+@media screen and (max-width: 768px){
+    .snkr-picture{
+        height: 45vw;
+    }
+    
+    .snkr-product{
+        width: 45vw;
+        margin-bottom: 20px;
+        border: 1px solid rgb(214, 214, 214);
+        display: flex;
+        flex-direction: column;
+        transition: 0.2s ease-in-out;
+    }
+}
+
+.types{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.types a{
+    padding: 7px;
+    border: 1px solid #48BC84;
+    border-radius: 5px;
+    color: #48BC84;
+    font-weight: 300;
+    font-size: 1.2em;
+    transition: 0.1s ease-in-out;
+}
+
+.types a:hover{
+    background-color: #48BC84;
+    color: white;
+}
+
+.colors{
+    margin-bottom: 20px;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+}
+
+.colors p{
+    margin-right: 10px;
+    margin-bottom: 0;
+    font-weight: 500;
+}
+
+.color{
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    margin-right: 10px;
+    border: 1px solid rgba(211, 211, 211, 0.356);
+}
+
+.snkr-nbrPic{
+    position: absolute;
+    z-index: 2;
+    align-self: flex-end;
+    margin-right: 10px;
+    margin-top: 5px;
+    color: white;
+    font-weight: 600;
+    text-shadow: 1px 1px 2px rgba(58, 58, 58, 0.356);
+}
+
+.snkr-title{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    border-top: 1px solid rgb(214, 214, 214);
+    font-weight: 300;
+    width: 100%;
+    margin-bottom: 0px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 100%;
+}
+
+.snkr-card:hover{
+    cursor: pointer;
+    box-shadow: 1px 1px 5px 0px #00000025;
+    transform: scale(1.02);
+}
+
+.footer{
+    margin-top: 50px;
+    background-color: #48BC84;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+}
+
+.footer ul {
+    padding-left: 0px;
+    justify-self: center;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    list-style: none;
+}
+
+.footer ul a {
+    color: white;
+}
+
+.footer ul li{
+    transition: 0.2s ease-in-out;
+}
+
+.footer ul li:hover{
+    transform: scale(1.1);
+}
