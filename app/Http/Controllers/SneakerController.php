@@ -20,19 +20,26 @@ class SneakerController extends Controller
     {
         $sneaker = Sneaker::where('id', $id)
                         ->first();
-        $result = $sneaker;
-        $result_images = rtrim($result->filenames, ' ]');
-        $result_images = substr($result_images, 1);
-        $result_images = explode(",", $result_images);
-        $images = [];
-        foreach ($result_images as $image){
-            $image = rtrim($image, '"');
-            $image = substr($image, 1);
-            array_push($images, $image);
+        if($sneaker){
+            $result = $sneaker;
+            $result_images = rtrim($result->filenames, ' ]');
+            $result_images = substr($result_images, 1);
+            $result_images = explode(",", $result_images);
+            $images = [];
+            foreach ($result_images as $image){
+                $image = rtrim($image, '"');
+                $image = substr($image, 1);
+                array_push($images, $image);
+            }
+            // $images = $result->filenames;
+            // dd($images);
+            return view('sneaker', compact('sneaker', 'images'));
         }
-        // $images = $result->filenames;
-        // dd($images);
-        return view('sneaker', compact('sneaker', 'images'));
+        else{
+            return redirect('/')
+                ->with('error','Aucune sneaker trouvé pour la référence donnée.');
+        }
+        
     }
 
     public function color(Request $request)
@@ -99,6 +106,7 @@ class SneakerController extends Controller
         $updateSneaker = Sneaker::where('id', $id)
                         ->first(); // this point is the most important to change
         $updateSneaker->filenames = $data;
+        $updateSneaker->photo = $data[0];
         $updateSneaker->save();
 
         $file= new File();

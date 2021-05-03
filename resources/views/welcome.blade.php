@@ -1,5 +1,7 @@
 @extends('layout')
 @section('content')
+@include('flash-message') 
+
     <section class="section-home container">
       <h2 class="section-title">
         <div class="draw"></div>
