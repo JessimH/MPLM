@@ -6,7 +6,7 @@
         <div class="col col-12">
         <a href="/dashboard" type="button">Retour a l'accueil</a>
             <div class="card">
-                <div class="card-header"><h3>Sneakers</h3></div>
+                <div class="card-header"><h3>Modèles</h3></div>
                 <div class="card-body">
                 <form action="/add/sneaker" method="POST" enctype="multipart/form-data">
                 {{ csrf_field() }}

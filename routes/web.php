@@ -27,3 +27,4 @@ Route::auth();
 Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
 
 Route::get('/add/sneaker', 'App\Http\Controllers\SneakerController@create')->middleware(['auth']);
+Route::post('/add/sneaker', 'App\Http\Controllers\SneakerController@store')->middleware(['auth']);

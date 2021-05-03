@@ -2,26 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Sneaker;
+use App\Models\Marque;
 use Illuminate\Http\Request;
 
-class SneakerController extends Controller
+class MarqueController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id)
+    public function index()
     {
-        //retourner la snkrs avec le bon id
-        return view('sneaker'); 
-    }
-
-    public function color(Request $request)
-    {
-        //retourner la snkrs avec la bonne couleur du form ET le bon nom
-        return view('sneaker'); 
+        //
     }
 
     /**
@@ -32,7 +25,6 @@ class SneakerController extends Controller
     public function create()
     {
         //
-        return view('addSneaker'); 
     }
 
     /**
@@ -44,17 +36,15 @@ class SneakerController extends Controller
     public function store(Request $request)
     {
         //
-        dd($request['name']);
-        return view('addSneaker'); 
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Sneakers  $sneakers
+     * @param  \App\Models\Marque  $marque
      * @return \Illuminate\Http\Response
      */
-    public function show(Sneakers $sneakers)
+    public function show(Marque $marque)
     {
         //
     }
@@ -62,10 +52,10 @@ class SneakerController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Sneakers  $sneakers
+     * @param  \App\Models\Marque  $marque
      * @return \Illuminate\Http\Response
      */
-    public function edit(Sneakers $sneakers)
+    public function edit(Marque $marque)
     {
         //
     }
@@ -74,10 +64,10 @@ class SneakerController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Sneakers  $sneakers
+     * @param  \App\Models\Marque  $marque
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Sneakers $sneakers)
+    public function update(Request $request, Marque $marque)
     {
         //
     }
@@ -85,10 +75,10 @@ class SneakerController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Sneakers  $sneakers
+     * @param  \App\Models\Marque  $marque
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Sneakers $sneakers)
+    public function destroy(Marque $marque)
     {
         //
     }

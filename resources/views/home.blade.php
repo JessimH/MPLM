@@ -59,7 +59,7 @@
             <div class="card">
                 <div class="card-header"><h3>Modèles</h3></div>
                 <div class="card-body">
-                <a href="" type="button" class="btn btn-primary btn-lg mb-3">Ajouter une sneaker</a>
+                <a href="/add/modele" type="button" class="btn btn-primary btn-lg mb-3">Ajouter un nouveau modèle</a>
                 <table class="table table-striped">
                     <thead>
                         <tr>
@@ -100,7 +100,7 @@
             <div class="card">
                 <div class="card-header"><h3>Marques</h3></div>
                 <div class="card-body">
-                <a href="#" type="button" class="btn btn-primary btn-lg mb-3">Ajouter une marque</a>
+                <a href="/add/marque" type="button" class="btn btn-primary btn-lg mb-3">Ajouter une marque</a>
                 <table class="table table-striped text-center">
                     <thead>
                         <tr>

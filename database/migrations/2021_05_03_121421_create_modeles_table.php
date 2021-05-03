@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSneakersTable extends Migration
+class CreateModelesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,14 @@ class CreateSneakersTable extends Migration
      */
     public function up()
     {
-        Schema::create('sneakers', function (Blueprint $table) {
+        Schema::create('modeles', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
             $table->timestamps();
+
+            $table->foreignId('marque_id')
+                ->constrained()
+                ->onDelete('cascade');
         });
     }
 
@@ -26,6 +31,6 @@ class CreateSneakersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sneakers');
+        Schema::dropIfExists('modeles');
     }
 }
