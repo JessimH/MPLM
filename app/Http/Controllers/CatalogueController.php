@@ -13,7 +13,7 @@ class CatalogueController extends Controller
     //
     public function index()
     {
-        $sneakers = Sneaker::orderBy('name')->paginate(36);
+        $sneakers = Sneaker::orderBy('name')->get();
         $filtre = false;
         //retourner tout les produits
         return view('catalogue', compact('sneakers', 'filtre'));   
@@ -21,7 +21,7 @@ class CatalogueController extends Controller
 
     public function filter($filtre)
     {
-        $sneakers = Sneaker::orderBy('name')->paginate(36);
+        $sneakers = Sneaker::orderBy('name')->get();
         //retourner les produits avec le filtre
         return view('catalogue', compact('sneakers', 'filtre'));   
     }

@@ -92,11 +92,15 @@ a:hover{
 
 .row{
     justify-content: flex-start;
-    margin-right: -6vw;
+    align-items: center;
+    margin-right: -5vw;
+    margin-left: 5vw;
 }
 
 .section-home {
     margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
 }
 
 .section-title{
@@ -104,6 +108,7 @@ a:hover{
     align-items: center;
     font-size: 2rem;
     margin-bottom: 20px;
+    margin-left: 5vw;
 }
 
 .section-title .draw {
@@ -130,11 +135,12 @@ a:hover{
         justify-content: flex-start;
         padding-left: 4vw;
         margin-right: -5vw;
+        margin-left: 0;
     }
     
     .snkr-card{
         margin-bottom: 20px;
-        margin-right: 5.333vw;
+        margin-right: 4vw;
         width: 160px;
         border: 1px solid rgb(214, 214, 214);
         display: flex;
@@ -186,6 +192,7 @@ a:hover{
     display: flex;
     align-items: center;
     margin-bottom: 10px;
+    margin-left: 5vw;
 }
 
 .types a{
@@ -262,9 +269,12 @@ a:hover{
     font-weight: bold;
     display: flex;
     justify-content: center;
+    bottom: 0;
+    width: 100%;
 }
 
 .footer ul {
+    padding: 0;
     padding-left: 0px;
     justify-self: center;
     margin-top: 20px;
@@ -284,3 +294,16 @@ a:hover{
 .footer ul li:hover{
     transform: scale(1.1);
 }
+
+.pagination{
+    align-self: center;
+}
+
+.pagination li{
+    margin: 2px
+}
+
+.active{
+   color: #48BC84;
+}
+

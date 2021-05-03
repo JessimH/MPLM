@@ -10,83 +10,21 @@
         @endif
       </h2>
       <div class="row">
-      @for ($i = 0; $i < 6; $i++)
-        <a href="/sneaker/{{$sneakers[$i]['id']}}" class="snkr-card col-2 col-sm-6">
+      @foreach($sneakers as $sneaker)
+        <a href="/sneaker/{{$sneaker->id}}" class="snkr-card col-2 col-sm-6">
             <div
               class="snkr-pic"
               style="
-                background: url(/images/{{$sneakers[$i]['photo']}});
+                background: url(/images/{{$sneaker->photo}});
                 background-position: center;
                 background-size: cover;
               "
             ></div>
-            <p class="snkr-nbrPic">{{count(json_decode($sneakers[$i]['filenames']))}} <i class="far fa-images"></i></p>
-            <p class="snkr-title">{{$sneakers[$i]['name']}}</p>
+            <p class="snkr-nbrPic">{{count(json_decode($sneaker->filenames))}} <i class="far fa-images"></i></p>
+            <p class="snkr-title">{{$sneaker->name}}</p>
           </a>
-      @endfor
+      @endforeach
       </div>
-     
-     @if(count($sneakers) > 5)
-      <div class="row">
-      @for ($i = 6; $i < 12; $i++)
-        @if($sneakers[$i])
-          <a href="/sneaker/{{$sneakers[$i]['id']}}" class="snkr-card col-2 col-sm-6">
-              <div
-                class="snkr-pic"
-                style="
-                  background: url(/images/{{$sneakers[$i]['photo']}});
-                  background-position: center;
-                  background-size: cover;
-                "
-              ></div>
-              <p class="snkr-nbrPic">{{count(json_decode($sneakers[$i]['filenames']))}} <i class="far fa-images"></i></p>
-              <p class="snkr-title">{{$sneakers[$i]['name']}}</p>
-            </a>
-          @endif
-      @endfor
-      </div>
-      @endif
-      @if(count($sneakers) > 11)
-      <div class="row">
-      @for ($i = 12; $i < 18; $i++)
-        @if($sneakers[$i])
-          <a href="/sneaker/{{$sneakers[$i]['id']}}" class="snkr-card col-2 col-sm-6">
-              <div
-                class="snkr-pic"
-                style="
-                  background: url(/images/{{$sneakers[$i]['photo']}});
-                  background-position: center;
-                  background-size: cover;
-                "
-              ></div>
-              <p class="snkr-nbrPic">{{count(json_decode($sneakers[$i]['filenames']))}} <i class="far fa-images"></i></p>
-              <p class="snkr-title">{{$sneakers[$i]['name']}}</p>
-            </a>
-          @endif
-      @endfor
-      </div>
-      @endif
-      @if(count($sneakers) > 18)
-      <div class="row">
-      @for ($i = 19; $i < 24; $i++)
-        @if($sneakers[$i])
-          <a href="/sneaker/{{$sneakers[$i]['id']}}" class="snkr-card col-2 col-sm-6">
-              <div
-                class="snkr-pic"
-                style="
-                  background: url(/images/{{$sneakers[$i]['photo']}});
-                  background-position: center;
-                  background-size: cover;
-                "
-              ></div>
-              <p class="snkr-nbrPic">{{count(json_decode($sneakers[$i]['filenames']))}} <i class="far fa-images"></i></p>
-              <p class="snkr-title">{{$sneakers[$i]['name']}}</p>
-            </a>
-          @endif
-      @endfor
-      {{ $sneakers->links() }}
-      </div>
-      @endif
     </section>
 
 @endsection

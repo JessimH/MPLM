@@ -9,8 +9,8 @@
         <a href="/catalogue/{{$sneaker->marques->name}}" style="margin-right: 10px;">{{$sneaker->marques->name}} 👈</a>
         <a href="/catalogue/{{$sneaker->modeles->name}}"style="margin-right: 10px;">{{$sneaker->modeles->name}}👈</a>
         </div>
-      <p><b>Ajouté le:</b> {{\Carbon\Carbon::parse($sneaker -> created_at)->format('d/m/Y')}}</p>
-        <form action="POST" action="/sneaker/color">
+      <p style="margin-left: 5vw;"><b>Ajouté le:</b> {{\Carbon\Carbon::parse($sneaker -> created_at)->format('d/m/Y')}}</p>
+        <form style="margin-left: 5vw;" action="POST" action="/sneaker/color">
         {{ csrf_field() }}
             <div class="input-group mb-3">
             <div class="input-group mb-3">
