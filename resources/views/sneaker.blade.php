@@ -6,8 +6,8 @@
         {{$sneaker -> name}}
       </h2>
       <div class="types">
-        <a href="/catalogue/Nike" style="margin-right: 10px;">{{$sneaker->marques->name}} 👈</a>
-        <a href="/catalogue/Jordan 1 Hight"style="margin-right: 10px;">{{$sneaker->modeles->name}}👈</a>
+        <a href="/catalogue/{{$sneaker->marques->name}}" style="margin-right: 10px;">{{$sneaker->marques->name}} 👈</a>
+        <a href="/catalogue/{{$sneaker->modeles->name}}"style="margin-right: 10px;">{{$sneaker->modeles->name}}👈</a>
         </div>
       <p><b>Ajouté le:</b> {{\Carbon\Carbon::parse($sneaker -> created_at)->format('d/m/Y')}}</p>
         <form action="POST" action="/sneaker/color">

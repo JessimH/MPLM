@@ -3,12 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Sneaker;
 
 class WelcomeController extends Controller
 {
     //
     public function index()
     {
-        return view('welcome');   
+        $sneakers = Sneaker::orderBy('created_at', 'desc')->get();
+        //retourner tout les produits
+        return view('welcome', compact('sneakers'));
     }
 }
