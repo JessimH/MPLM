@@ -16,7 +16,7 @@ Route::get('/','App\Http\Controllers\WelcomeController@index');
 
 Route::get('/sneaker/{id}', 'App\Http\Controllers\SneakerController@index');
 
-Route::post('/sneaker/color', 'App\Http\Controllers\SneakerController@color');
+Route::post('/sneaker/{modele}/color', 'App\Http\Controllers\SneakerController@index');
 
 Route::get('/catalogue', 'App\Http\Controllers\CatalogueController@index');
 

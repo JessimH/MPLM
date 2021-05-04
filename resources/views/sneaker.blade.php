@@ -10,17 +10,16 @@
         <a href="/catalogue/{{$sneaker->modeles->name}}"style="margin-right: 10px;">{{$sneaker->modeles->name}}👈</a>
         </div>
       <p style="margin-left: 5vw;"><b>Ajouté le:</b> {{\Carbon\Carbon::parse($sneaker -> created_at)->format('d/m/Y')}}</p>
-        <form style="margin-left: 5vw;" action="POST" action="/sneaker/color">
+        <form style="margin-left: 5vw;" method="POST" action="/sneaker/{{$sneaker->modeles->name}}/color">
         {{ csrf_field() }}
             <div class="input-group mb-3">
-            <div class="input-group mb-3">
-            <select class="custom-select" id="inputGroupSelect04" aria-label="Example select with button addon">
-                <option selected>Choisissez un coloris</option>
-                <option value="1">Legend blue</option>
-                <option value="2">Black</option>
-                <option value="3">Full White</option>
+            <select class="custom-select" id="color" name="color">
+                <option>{{$sneaker->color}}</option>
+                @foreach($colors as $color)
+                  <option>{{$color}}</option>
+                @endforeach
             </select>
-            <button type="submit" class="btn btn-outline-secondary">Submit</button>
+            <button class="btn btn-outline-secondary">Voir</button>
             </div>
         </form>
       </div>

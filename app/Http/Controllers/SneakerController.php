@@ -16,10 +16,20 @@ class SneakerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id)
+    public function index($id, Request $request)
     {
         $sneaker = Sneaker::where('id', $id)
                         ->first();
+        
+        if($request->modele){
+            $modele = $request->modele;
+            $color = $request->color;
+            $modeleDb = Modele::where('name', $modele)->first();
+            $sneaker = Sneaker::where('modeles_id', $modeleDb->id)->where('color', $color)->first();
+            // dd($sneaker->id);
+        }
+        
+
         if($sneaker){
             $result = $sneaker;
             $result_images = rtrim($result->filenames, ' ]');
@@ -34,21 +44,26 @@ class SneakerController extends Controller
             // $images = $result->filenames;
             // dd($images);
 
-            
-
-            return view('sneaker', compact('sneaker', 'images'));
+            $modele = Modele::where('id', $sneaker->modeles_id)->first();
+            $sneakers = Sneaker::where('modeles_id', $modele->id)
+            ->get();
+            $colors= array();
+            for($i = 0; $i < count($sneakers); $i++){
+                $found_key = array_search($sneakers[$i]->color, $colors);
+                if($found_key){
+                    continue;
+                }
+                else{
+                    array_push($colors, $sneakers[$i]->color);
+                }
+            }
+            return view('sneaker', compact('sneaker', 'images', 'colors'));
         }
         else{
             return redirect('/')
                 ->with('error','Aucune sneaker trouvé pour la référence donnée.');
         }
         
-    }
-
-    public function color(Request $request)
-    {
-        //retourner la snkrs avec la bonne couleur du form ET le bon nom
-        return view('sneaker'); 
     }
 
     /**
