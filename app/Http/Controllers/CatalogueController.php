@@ -15,8 +15,10 @@ class CatalogueController extends Controller
     {
         $sneakers = Sneaker::orderBy('name')->get();
         $filtre = false;
+        $marques = Marque::orderBy('name', 'desc')->get();
+
         //retourner tout les produits
-        return view('catalogue', compact('sneakers', 'filtre'));   
+        return view('catalogue', compact('sneakers', 'filtre', 'marques'));   
     }
 
     public function filter($filtre)
@@ -34,6 +36,7 @@ class CatalogueController extends Controller
         }
         // dd($sneakers);
         //retourner les produits avec le filtre
-        return view('catalogue', compact('sneakers', 'filtre'));   
+        $marques = Marque::orderBy('name', 'desc')->get();
+        return view('catalogue', compact('sneakers', 'filtre', 'marques'));   
     }
 }

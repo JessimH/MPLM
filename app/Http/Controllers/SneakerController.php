@@ -57,7 +57,10 @@ class SneakerController extends Controller
                     array_push($colors, $sneakers[$i]->color);
                 }
             }
-            return view('sneaker', compact('sneaker', 'images', 'colors'));
+
+            $marques = Marque::orderBy('name', 'desc')->get();
+
+            return view('sneaker', compact('sneaker', 'images', 'colors', 'marques'));
         }
         else{
             return redirect('/')
