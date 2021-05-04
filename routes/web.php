@@ -26,6 +26,12 @@ Route::auth();
 
 Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
 
+Route::get('/admin/sneakers', 'App\Http\Controllers\HomeController@sneakers')->middleware(['auth']);
+
+Route::get('/admin/marques', 'App\Http\Controllers\HomeController@marques')->middleware(['auth']);
+
+Route::get('/admin/modeles', 'App\Http\Controllers\HomeController@modeles')->middleware(['auth']);
+
 Route::get('/add/sneaker', 'App\Http\Controllers\SneakerController@create')->middleware(['auth']);
 Route::post('/add/sneaker', 'App\Http\Controllers\SneakerController@store')->middleware(['auth']);
 

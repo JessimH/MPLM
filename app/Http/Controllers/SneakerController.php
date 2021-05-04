@@ -134,7 +134,7 @@ class SneakerController extends Controller
         $file->filenames=json_encode($data);
         $file->save();
 
-        return redirect('/dashboard')
+        return redirect('/admin/sneakers')
                 ->with('success','Votre Sneaker à bien été ajouté.');
     }
 
@@ -185,10 +185,10 @@ class SneakerController extends Controller
         if(count($snkrToDelete)>0){
             Sneaker::where('id', $id )->delete();
 
-            return redirect('/dashboard')->with('success','Votre Sneaker a bien été suprimé de la Base de données !');
+            return redirect('/admin/sneakers')->with('success','Votre Sneaker a bien été suprimé de la Base de données !');
         }
         else{
-            return redirect('/dashboard')->with('error','La sneaker est introuvable, contactez votre administrateur de base de données.');
+            return redirect('/admin/sneakers')->with('error','La sneaker est introuvable, contactez votre administrateur de base de données.');
         } 
         
     }

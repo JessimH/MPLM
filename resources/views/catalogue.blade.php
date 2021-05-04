@@ -59,6 +59,12 @@
         <div class="draw"></div>
         @if($filtre)
             {{$filtre}}
+
+            @if($filtre != $sneakers[0]->marques->name)
+              <div class="types" style="margin-left: 10px; font-size: 15px; font-weight: 600; margin-top: 10px">
+                <a href="/catalogue/{{$sneakers[0]->marques->name}}">{{$sneakers[0]->marques->name}}</a>
+              </div>
+            @endif
         @else
             {{ count($sneakers) < 2 ? count($sneakers).' paire dans le catalogue' : count($sneakers).' paires dans le catalogue'}}
         @endif

@@ -60,8 +60,8 @@
         {{$sneaker -> name}}
       </h2>
       <div class="types">
-        <a href="/catalogue/{{$sneaker->marques->name}}" style="margin-right: 10px;">{{$sneaker->marques->name}} 👈</a>
-        <a href="/catalogue/{{$sneaker->modeles->name}}"style="margin-right: 10px;">{{$sneaker->modeles->name}}👈</a>
+        <a href="/catalogue/{{$sneaker->marques->name}}" style="margin-right: 10px;">{{$sneaker->marques->name}}</a>
+        <a href="/catalogue/{{$sneaker->modeles->name}}"style="margin-right: 10px;">{{$sneaker->modeles->name}}</a>
         </div>
       <p style="margin-left: 5vw;"><b>Ajouté le:</b> {{\Carbon\Carbon::parse($sneaker -> created_at)->format('d/m/Y')}}</p>
         <form style="margin-left: 5vw;" method="POST" action="/sneaker/{{$sneaker->modeles->name}}/color">

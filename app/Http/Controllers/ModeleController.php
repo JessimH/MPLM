@@ -56,7 +56,7 @@ class ModeleController extends Controller
         // $modele->marques()->associate($marque);
         $modele->save();
 
-        return redirect('/dashboard')
+        return redirect('/admin/modeles')
                 ->with('success','Votre modèle à bien été ajouté.');
     }
 
@@ -107,10 +107,10 @@ class ModeleController extends Controller
         if(count($modeleToDelete)>0){
             Modele::where('id', $id )->delete();
 
-            return redirect('/dashboard')->with('success','Votre modèle a bien été suprimé de la Base de données !');
+            return redirect('/admin/modeles')->with('success','Votre modèle a bien été supprimé de la Base de données !');
         }
         else{
-            return redirect('/dashboard')->with('error','La modèle est introuvable, contactez votre administrateur de base de données.');
+            return redirect('/admin/modeles')->with('error','La modèle est introuvable, contactez votre administrateur de base de données.');
         } 
         
     }

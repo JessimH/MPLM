@@ -35,4 +35,31 @@ class HomeController extends Controller
 
         return view('home', compact(['modeles', 'sneakers', 'marques']));
     }
+
+    public function marques()
+    {
+        $modeles = Modele::get();
+        $sneakers = Sneaker::get();
+        $marques = Marque::get();
+
+        return view('adminMarques', compact(['modeles', 'sneakers', 'marques']));
+    }
+
+    public function modeles()
+    {
+        $modeles = Modele::get();
+        $sneakers = Sneaker::get();
+        $marques = Marque::get();
+
+        return view('adminModeles', compact(['modeles', 'sneakers', 'marques']));
+    }
+
+    public function sneakers()
+    {
+        $modeles = Modele::get();
+        $sneakers = Sneaker::get();
+        $marques = Marque::get();
+
+        return view('adminSneakers', compact(['modeles', 'sneakers', 'marques']));
+    }
 }

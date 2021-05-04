@@ -1,6 +1,6 @@
 @extends('layout')
 @section('content')
-@include('flash-message') 
+
 <nav class="navbar navbar-expand-lg navbar bg nav">
       <div class="container-fluid">
         <a class="navbar-brand" href="/">MPLM</a>
@@ -54,6 +54,8 @@
         </div>
       </div>
 </nav>
+
+@include('flash-message') 
 
     <section class="section-home container">
       <h2 class="section-title">

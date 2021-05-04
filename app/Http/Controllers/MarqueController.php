@@ -44,7 +44,7 @@ class MarqueController extends Controller
         Marque::create($validatedAttributes = request()->validate([
             'name' => 'required'
         ]));
-        return redirect('/dashboard')
+        return redirect('/admin/marques')
                 ->with('success','Votre marque à bien été ajouté.');
     }
 
@@ -95,10 +95,10 @@ class MarqueController extends Controller
         if(count($marqueToDelete)>0){
             Marque::where('id', $id )->delete();
 
-            return redirect('/dashboard')->with('success','Votre marque a bien été suprimé de la Base de données !');
+            return redirect('/admin/marques')->with('success','Votre marque a bien été suprimé de la Base de données !');
         }
         else{
-            return redirect('/dashboard')->with('error','La marque est introuvable, contactez votre administrateur de base de données.');
+            return redirect('/admin/marques')->with('error','La marque est introuvable, contactez votre administrateur de base de données.');
         } 
         
     }

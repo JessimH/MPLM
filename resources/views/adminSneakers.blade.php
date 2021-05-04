@@ -8,9 +8,9 @@
         @include('flash-message') 
         <div class="col col-12">
             <div class="card">
-                <div class="card-header"><h3>Sneakers du moment</h3></div>
+                <div class="card-header"><h3>Sneakers</h3></div>
                 <div class="card-body">
-                <a href="/add/sneaker" type="button" class="btn btn-primary btn-lg mb-3">Enregistrer</a>
+                <a href="/add/sneaker" type="button" class="btn btn-primary btn-lg mb-3">Ajouter une sneaker</a>
                 <div class="table-responsive">
                     <table class="table table-striped">
                         <thead>
@@ -20,7 +20,7 @@
                             <th scope="col">Couleur</th>
                             <th scope="col">Modèle</th>
                             <th scope="col">Marque</th>
-                            <th scope="col">BestSeller</th>
+                            <th scope="col">Supprimer</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -35,15 +35,7 @@
                                 <th scope="col">
                                 <a href="/catalogue/{{$sneaker->marques->name}}">{{$sneaker->marques->name}}</a>
                                 </th>
-                                <td>
-                                <form>
-                                    <div class="form-check">
-                                        <input      class="form-check-input" type="checkbox" value="" id="flexCheckDefault"
-                                        checked
-                                        />
-                                    </div>
-                                </form>
-                                </td>
+                                <td><a class="text-danger" href="/delete/sneaker/{{$sneaker->id}}">supprimer</a></td>
                                 </tr>
                             @endforeach
                         </tbody>
