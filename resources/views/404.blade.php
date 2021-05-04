@@ -1,7 +1,7 @@
 @extends('layout')
 @section('content')
 
-<nav class="navbar navbar-expand-lg navbar bg nav">
+<nav class="navbar navbar-expand-lg navbar bg nav" style="margin-bottom: 0px;">
       <div class="container-fluid">
         <a class="navbar-brand" href="/">MPLM</a>
         <button
@@ -58,7 +58,7 @@
 
 @include('flash-message') 
 
-    <section style="width: 100vw; height: 70vh; display: flex; justify-content: center; align-items:center; background: url('https://i.gifer.com/17ZQ.gif'); color: white">
+    <section style="width: 100vw; height: 70vh; display: flex; justify-content: center; align-items:center; background: url('https://cdn.sanity.io/images/c1chvb1i/production/520bd282c5ab4b07bfdd3e5d91f9715db4f65a13-900x540.gif/arhero-updated.gif') center center; background-size:cover; background-repeat: no-repeat; color: white">
         <h1 style="font-size: 3em;">Désolé, aucune Sneaker trouvé!</h1>
     </section>
 @endsection

@@ -10,8 +10,11 @@ class NopeController extends Controller
     //
     public function index()
     {
+
+        $sneakers = Sneaker::where('bestseller', true)->get();
+
         $marques = Marque::orderBy('name', 'desc')->get();
         //retourner tout les produits
-        return view('404', compact('marques'));
+        return view('404', compact('sneakers', 'marques'));
     }
 }

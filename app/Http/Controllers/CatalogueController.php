@@ -39,7 +39,7 @@ class CatalogueController extends Controller
 
             $marques = Marque::orderBy('name', 'desc')->get();
             //retourner tout les produits
-            return view('404', compact('q'));
+            return view('404', compact('q', 'marques'));
         }
 
         // dd($sneakers);

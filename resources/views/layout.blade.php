@@ -27,7 +27,7 @@
 
 @yield('content')
 
-    <footer class="navbar footer footer-light footer-shadow content container-fluid">
+    <footer class="navbar footer footer-light footer-shadow content container-fluid" style="margin-top: 0px;">
       <!-- Copyright -->
       <div class="text-center p-3">
         <p>Made with a lot of ❤️</p>
