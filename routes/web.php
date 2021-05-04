@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/','App\Http\Controllers\WelcomeController@index');
+Route::get('/', 'App\Http\Controllers\WelcomeController@index');
 
 Route::get('/sneaker/{id}', 'App\Http\Controllers\SneakerController@index');
 
@@ -21,6 +21,9 @@ Route::post('/sneaker/{modele}/color', 'App\Http\Controllers\SneakerController@i
 Route::get('/catalogue', 'App\Http\Controllers\CatalogueController@index');
 
 Route::get('/catalogue/{filter}', 'App\Http\Controllers\CatalogueController@filter');
+
+Route::post('/search', 'App\Http\Controllers\CatalogueController@search');
+Route::get('/search', 'App\Http\Controllers\CatalogueController@search');
 
 Route::auth();
 
@@ -34,7 +37,8 @@ Route::get('/addBestseller/{id}', 'App\Http\Controllers\HomeController@bestselle
 
 Route::get('/admin/modeles', 'App\Http\Controllers\HomeController@modeles')->middleware(['auth']);
 
-Route::get('/add/sneaker', 'App\Http\Controllers\SneakerController@create')->middleware(['auth']);
+Route::get('/404', 'App\Http\Controllers\NopeController@index');
+
 Route::post('/add/sneaker', 'App\Http\Controllers\SneakerController@store')->middleware(['auth']);
 
 Route::get('/add/modele', 'App\Http\Controllers\ModeleController@create')->middleware(['auth']);

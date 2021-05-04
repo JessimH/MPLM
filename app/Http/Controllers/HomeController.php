@@ -67,7 +67,10 @@ class HomeController extends Controller
     {
         $sneaker = Sneaker::where('id', $id)
                         ->first();
-        dd($sneaker);
+
+        $sneaker->bestseller = !$sneaker->bestseller;
+        $sneaker->save();
+
         return redirect('/dashboard')
                 ->with('success','Votre Sneaker à bien été ajouté aux best sellers.');
     }

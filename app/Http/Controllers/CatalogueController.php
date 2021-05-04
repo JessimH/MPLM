@@ -21,6 +21,30 @@ class CatalogueController extends Controller
         return view('catalogue', compact('sneakers', 'filtre', 'marques'));   
     }
 
+    public function search(Request $request)
+    {
+        $q = $request['search'];
+
+        $sneakers = Sneaker::where('name','LIKE','%'.$q.'%')->orWhere('color','LIKE','%'.$q.'%')->get();
+
+        if (count($sneakers) > 0) {
+            $filtre = $request->search;
+            $marques = Marque::orderBy('name', 'desc')->get();
+
+            return view('search', compact('sneakers', 'filtre', 'marques'));
+        }
+
+        else {
+            $sneakers = Sneaker::where('bestseller', true)->get();
+
+            $marques = Marque::orderBy('name', 'desc')->get();
+            //retourner tout les produits
+            return view('404', compact('q'));
+        }
+
+        // dd($sneakers);
+    }
+
     public function filter($filtre)
     {
         $marque = Marque::where('name', $filtre)->first();

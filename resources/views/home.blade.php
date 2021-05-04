@@ -35,7 +35,12 @@
                                     <a href="/catalogue/{{$sneaker->marques->name}}">{{$sneaker->marques->name}}</a>
                                     </th>
                                     <td>
-                                        <a href="/addBestseller/{{$sneaker->id}}">ajouter aux bestseller</a>
+                                        @if($sneaker->bestseller)
+                                            <a class="text-danger" href="/addBestseller/{{$sneaker->id}}">
+                                            retirer</a>
+                                        @else
+                                            <a href="/addBestseller/{{$sneaker->id}}">ajouter</a>
+                                        @endif
                                     </td>
                                     </tr>
                                 @endforeach

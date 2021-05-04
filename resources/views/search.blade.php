@@ -1,6 +1,5 @@
 @extends('layout')
 @section('content')
-
 <nav class="navbar navbar-expand-lg navbar bg nav">
       <div class="container-fluid">
         <a class="navbar-brand" href="/">MPLM</a>
@@ -45,9 +44,8 @@
               </ul>
             </li>
           </ul>
-          <form method="POST" action="/search" class="d-flex search">
-          {{ csrf_field() }}
-            <input class="typeahead" name="search" id="search" placeholder="Chercher une SNKRS" type="text" />
+          <form class="d-flex search">
+            <input placeholder="Chercher une SNKRS" aria-label="Search" />
             <button type="submit">
               <i class="fas fa-search"></i>
             </button>
@@ -56,12 +54,10 @@
       </div>
 </nav>
 
-@include('flash-message') 
-
-    <section class="section-home container">
+<section class="section-home container">
       <h2 class="section-title">
         <div class="draw"></div>
-        Best sellers
+        {{count($sneakers)}} résultats
       </h2>
       <div class="row">
       @foreach($sneakers as $sneaker)
@@ -80,6 +76,5 @@
       @endforeach
       </div>
     </section>
-@endsection
 
-   
+@endsection

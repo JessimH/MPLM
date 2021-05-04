@@ -110,6 +110,7 @@ class SneakerController extends Controller
         $sneaker->color = $request['color'];
         $sneaker->marques_id = $marque_id;
         $sneaker->modeles_id = $modele_id;
+        $sneaker->bestseller = false;
     
         $sneaker->save();
 
