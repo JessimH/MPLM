@@ -25,7 +25,7 @@ a:hover{
 }
 .nav{
     margin-bottom: 50px;
-    background-color: #48BC84;
+    background-color: #8F6C51;
     padding: 20px 0px 20px 0px;
     color: white;
     box-shadow: 3px -5px 28px 2px rgba(0,0,0,0.41);
@@ -40,7 +40,7 @@ a:hover{
 }
 
 .dropdown a:hover{
-    color: #48BC84;
+    color: #8F6C51;
 }
 
 .dropdown-menu{
@@ -76,12 +76,12 @@ a:hover{
 }
 
 .search:hover{
-    color: #48BC84;
-    box-shadow: 1px 1px 18px 2px #66ffb5a8;
+    color: #8F6C51;
+    box-shadow: 1px 1px 18px 2px #8f6c51b2;
 }
 
 .search button:hover{
-    color: #48BC84;
+    color: #8F6C51;
 }
 
 
@@ -113,7 +113,7 @@ a:hover{
 }
 
 .section-title .draw {
-    background-color: #48BC84;
+    background-color: #8F6C51;
     border-radius: 5px;
     width: 10px;
     height: 30px;
@@ -218,16 +218,16 @@ a:hover{
 
 .types a{
     padding: 7px;
-    border: 1px solid #48BC84;
+    border: 1px solid #8F6C51;
     border-radius: 5px;
-    color: #48BC84;
+    color: #8F6C51;
     font-weight: 300;
     font-size: 1.2em;
     transition: 0.1s ease-in-out;
 }
 
 .types a:hover{
-    background-color: #48BC84;
+    background-color: #8F6C51;
     color: white;
 }
 
@@ -285,7 +285,7 @@ a:hover{
 
 .footer{
     margin-top: 50px;
-    background-color: #48BC84;
+    background-color: #8F6C51;
     color: white;
     font-weight: bold;
     display: flex;
