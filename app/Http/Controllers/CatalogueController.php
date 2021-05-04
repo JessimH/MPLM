@@ -15,7 +15,7 @@ class CatalogueController extends Controller
     {
         $sneakers = Sneaker::orderBy('name')->get();
         $filtre = false;
-        $marques = Marque::orderBy('name', 'desc')->get();
+        $marques = Marque::orderBy('name')->get();
 
         //retourner tout les produits
         return view('catalogue', compact('sneakers', 'filtre', 'marques'));   
@@ -29,7 +29,7 @@ class CatalogueController extends Controller
 
         if (count($sneakers) > 0) {
             $filtre = $request->search;
-            $marques = Marque::orderBy('name', 'desc')->get();
+            $marques = Marque::orderBy('name')->get();
 
             return view('search', compact('sneakers', 'filtre', 'marques'));
         }
@@ -37,7 +37,7 @@ class CatalogueController extends Controller
         else {
             $sneakers = Sneaker::where('bestseller', true)->get();
 
-            $marques = Marque::orderBy('name', 'desc')->get();
+            $marques = Marque::orderBy('name')->get();
             //retourner tout les produits
             return view('errors.404', compact('q', 'marques'));
         }
@@ -51,12 +51,12 @@ class CatalogueController extends Controller
         $modele = Modele::where('name', $filtre)->first();
         if($marque){
             $sneakers = Sneaker::where('marques_id', $marque->id)->get();
-            $marques = Marque::orderBy('name', 'desc')->get();
+            $marques = Marque::orderBy('name')->get();
             return view('catalogue', compact('sneakers', 'filtre', 'marques'));   
         }
         elseif($modele){
             $sneakers = Sneaker::where('modeles_id', $modele->id)->get();
-            $marques = Marque::orderBy('name', 'desc')->get();
+            $marques = Marque::orderBy('name')->get();
             return view('catalogue', compact('sneakers', 'filtre', 'marques'));   
         }
         else{

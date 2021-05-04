@@ -13,7 +13,7 @@ class NopeController extends Controller
 
         $sneakers = Sneaker::where('bestseller', true)->get();
 
-        $marques = Marque::orderBy('name', 'desc')->get();
+        $marques = Marque::orderBy('name')->get();
         //retourner tout les produits
         return view('errors.404', compact('sneakers', 'marques'));
     }

@@ -58,7 +58,7 @@ class SneakerController extends Controller
                 }
             }
 
-            $marques = Marque::orderBy('name', 'desc')->get();
+            $marques = Marque::orderBy('name')->get();
 
             return view('sneaker', compact('sneaker', 'images', 'colors', 'marques'));
         }
@@ -77,9 +77,9 @@ class SneakerController extends Controller
     public function create()
     {
         //
-        $modeles = Modele::get();
-        $sneakers = Sneaker::get();
-        $marques = Marque::get();
+        $modeles = Modele::orderBy('name')->get();
+        $sneakers = Sneaker::orderBy('name')->get();
+        $marques = Marque::orderBy('name')->get();
 
         return view('addSneaker', compact(['modeles', 'sneakers', 'marques']));
     }
