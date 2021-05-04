@@ -35,7 +35,7 @@
       <div class="text-center p-3">
         <p>Made with a lot of ❤️</p>
         © 2021 Copyright: MPLM.com, all right reserved
-        <ul>
+        <!-- <ul>
           <li>
             <a href="#"><i class="fab fa-instagram fa-2x"></i></a>
           </li>
@@ -45,7 +45,7 @@
           <li>
             <a href="#"><i class="fab fa-twitter fa-2x"></i></a>
           </li>
-        </ul>
+        </ul> -->
       </div>
       <!-- Copyright -->
     </footer>
