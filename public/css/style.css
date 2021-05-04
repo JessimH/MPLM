@@ -324,7 +324,9 @@ a:hover{
     margin: 2px
 }
 
+
+
 .active{
-   color: #48BC84;
+   text-decoration: underline;
 }
 
