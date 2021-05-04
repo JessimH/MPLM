@@ -19,6 +19,7 @@ class CreateSneakersTable extends Migration
             $table->string('color');
             $table->string('photo')->nullable();
             $table->string('filenames')->nullable();
+            $table->string('bestseller')->nullable();
             $table->timestamps();
 
             $table->foreignId('modeles_id')

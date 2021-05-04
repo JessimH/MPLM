@@ -101,6 +101,7 @@ a:hover{
     margin-bottom: 40px;
     display: flex;
     flex-direction: column;
+    min-height: 70vh;
 }
 
 .section-title{
@@ -160,6 +161,11 @@ a:hover{
 
 .snkr-picture{
     height: 35vh;
+    transition: 0.2s ease-in-out;
+}
+
+.snkr-picture:hover{
+    transform: scale(1.05);
 }
 
 .row .products{

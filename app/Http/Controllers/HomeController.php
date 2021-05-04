@@ -29,37 +29,46 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $modeles = Modele::get();
-        $sneakers = Sneaker::get();
-        $marques = Marque::get();
+        $modeles = Modele::orderBy('name')->get();
+        $sneakers = Sneaker::orderBy('name')->get();
+        $marques = Marque::orderBy('name')->get();
 
         return view('home', compact(['modeles', 'sneakers', 'marques']));
     }
 
     public function marques()
     {
-        $modeles = Modele::get();
-        $sneakers = Sneaker::get();
-        $marques = Marque::get();
+        $modeles = Modele::orderBy('name')->get();
+        $sneakers = Sneaker::orderBy('name')->get();
+        $marques = Marque::orderBy('name')->get();
 
         return view('adminMarques', compact(['modeles', 'sneakers', 'marques']));
     }
 
     public function modeles()
     {
-        $modeles = Modele::get();
-        $sneakers = Sneaker::get();
-        $marques = Marque::get();
+        $modeles = Modele::orderBy('name')->get();
+        $sneakers = Sneaker::orderBy('name')->get();
+        $marques = Marque::orderBy('name')->get();
 
         return view('adminModeles', compact(['modeles', 'sneakers', 'marques']));
     }
 
     public function sneakers()
     {
-        $modeles = Modele::get();
-        $sneakers = Sneaker::get();
-        $marques = Marque::get();
+        $modeles = Modele::orderBy('name')->get();
+        $sneakers = Sneaker::orderBy('name')->get();
+        $marques = Marque::orderBy('name')->get();
 
         return view('adminSneakers', compact(['modeles', 'sneakers', 'marques']));
+    }
+
+    public function bestseller($id)
+    {
+        $sneaker = Sneaker::where('id', $id)
+                        ->first();
+        dd($sneaker);
+        return redirect('/dashboard')
+                ->with('success','Votre Sneaker à bien été ajouté aux best sellers.');
     }
 }

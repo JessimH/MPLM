@@ -30,6 +30,8 @@ Route::get('/admin/sneakers', 'App\Http\Controllers\HomeController@sneakers')->m
 
 Route::get('/admin/marques', 'App\Http\Controllers\HomeController@marques')->middleware(['auth']);
 
+Route::get('/addBestseller/{id}', 'App\Http\Controllers\HomeController@bestseller')->middleware(['auth']);
+
 Route::get('/admin/modeles', 'App\Http\Controllers\HomeController@modeles')->middleware(['auth']);
 
 Route::get('/add/sneaker', 'App\Http\Controllers\SneakerController@create')->middleware(['auth']);

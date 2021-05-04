@@ -10,45 +10,38 @@
             <div class="card">
                 <div class="card-header"><h3>Sneakers du moment</h3></div>
                 <div class="card-body">
-                <a href="/add/sneaker" type="button" class="btn btn-primary btn-lg mb-3">Enregistrer</a>
-                <div class="table-responsive">
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Nom</th>
-                            <th scope="col">Couleur</th>
-                            <th scope="col">Modèle</th>
-                            <th scope="col">Marque</th>
-                            <th scope="col">BestSeller</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach($sneakers as $sneaker)
-                            <tr>
-                                <th scope="row">{{$sneaker->id}}</th>
-                                <td><a href="/sneaker/{{$sneaker->id}}">{{$sneaker->name}}</a></td>
-                                <th scope="col">{{$sneaker->color}}</th>
-                                <th scope="col">
-                                <a href="/catalogue/{{$sneaker->modeles->name}}">{{$sneaker->modeles->name}}</a>
-                                </th>
-                                <th scope="col">
-                                <a href="/catalogue/{{$sneaker->marques->name}}">{{$sneaker->marques->name}}</a>
-                                </th>
-                                <td>
-                                <form>
-                                    <div class="form-check">
-                                        <input      class="form-check-input" type="checkbox" value="" id="flexCheckDefault"
-                                        checked
-                                        />
-                                    </div>
-                                </form>
-                                </td>
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Nom</th>
+                                <th scope="col">Couleur</th>
+                                <th scope="col">Modèle</th>
+                                <th scope="col">Marque</th>
+                                <th scope="col">BestSeller</th>
                                 </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
+                            </thead>
+                            <tbody>
+                                @foreach($sneakers as $sneaker)
+                                <tr>
+                                    <th scope="row">{{$sneaker->id}}</th>
+                                    <td><a href="/sneaker/{{$sneaker->id}}">{{$sneaker->name}}</a></td>
+                                    <th scope="col">{{$sneaker->color}}</th>
+                                    <th scope="col">
+                                    <a href="/catalogue/{{$sneaker->modeles->name}}">{{$sneaker->modeles->name}}</a>
+                                    </th>
+                                    <th scope="col">
+                                    <a href="/catalogue/{{$sneaker->marques->name}}">{{$sneaker->marques->name}}</a>
+                                    </th>
+                                    <td>
+                                        <a href="/addBestseller/{{$sneaker->id}}">ajouter aux bestseller</a>
+                                    </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
