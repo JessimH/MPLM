@@ -159,11 +159,17 @@ a:hover{
 }
 
 .snkr-picture{
-    height: 40vh;
+    height: 35vh;
+}
+
+.row .products{
+    justify-content: space-evenly;
+    margin-left: 0vw;
 }
 
 .snkr-product{
-    width: 40vh;
+    width: 35vh;
+    margin-right: 20px;
     border: 1px solid rgb(214, 214, 214);
     margin-bottom: 20px;
     display: flex;
@@ -177,9 +183,14 @@ a:hover{
     .snkr-picture{
         height: 45vw;
     }
+
+    .row{
+        padding-left: 2vw;
+    }
     
     .snkr-product{
         width: 45vw;
+        margin-right: 0px;
         margin-bottom: 20px;
         border: 1px solid rgb(214, 214, 214);
         display: flex;

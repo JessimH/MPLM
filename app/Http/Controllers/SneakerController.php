@@ -33,6 +33,9 @@ class SneakerController extends Controller
             }
             // $images = $result->filenames;
             // dd($images);
+
+            
+
             return view('sneaker', compact('sneaker', 'images'));
         }
         else{

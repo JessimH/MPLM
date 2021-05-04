@@ -21,7 +21,18 @@ class CatalogueController extends Controller
 
     public function filter($filtre)
     {
-        $sneakers = Sneaker::orderBy('name')->get();
+        $marque = Marque::where('name', $filtre)->first();
+        $modele = Modele::where('name', $filtre)->first();
+        if($marque){
+            $sneakers = Sneaker::where('marques_id', $marque->id)->get();
+        }
+        elseif($modele){
+            $sneakers = Sneaker::where('modeles_id', $modele->id)->get();
+        }
+        else{
+            return redirect('/')->with('error','La filtre demandé ne retourne aucun produit.');
+        }
+        // dd($sneakers);
         //retourner les produits avec le filtre
         return view('catalogue', compact('sneakers', 'filtre'));   
     }
