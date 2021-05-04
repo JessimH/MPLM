@@ -149,6 +149,10 @@ a:hover{
         transition: 0.2s ease-in-out;
         box-shadow: 0px 1px 1px rgba(41, 41, 41, 0.13);
     }
+
+    .section-title .draw {
+        display: none;
+    }
 }​
 
 .snkr-img{

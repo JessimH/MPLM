@@ -27,23 +27,6 @@
             <li class="nav-item">
               <a class="nav-link" href="/catalogue">Catalogue</a>
             </li>
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                id="navbarDropdown"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-                style="color: white"
-              >
-                Marques
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                @foreach($marques as $marque)
-                  <li><a class="dropdown-item" href="/catalogue/{{$marque->name}}">{{$marque->name}}</a></li>
-                @endforeach
-              </ul>
-            </li>
           </ul>
           <form method="POST" action="/search" class="d-flex search">
           {{ csrf_field() }}
@@ -58,7 +41,7 @@
 
 @include('flash-message') 
 
-    <section style="width: 100vw; height: 70vh; display: flex; justify-content: center; align-items:center; background: url('https://cdn.sanity.io/images/c1chvb1i/production/520bd282c5ab4b07bfdd3e5d91f9715db4f65a13-900x540.gif/arhero-updated.gif') center center; background-size:cover; background-repeat: no-repeat; color: white">
+    <section style="width: 100vw; height: 70vh; display: flex; justify-content: center; align-items:center; background: url('https://steamuserimages-a.akamaihd.net/ugc/843718643559713894/CA79D6CDB7DD63C47EC50EDD68A81BC0571EE16C/') center center; background-size:cover; background-repeat: no-repeat; color: white">
         <h1 style="font-size: 3em;">Désolé, aucune Sneaker trouvé!</h1>
     </section>
 @endsection

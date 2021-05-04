@@ -15,6 +15,6 @@ class NopeController extends Controller
 
         $marques = Marque::orderBy('name', 'desc')->get();
         //retourner tout les produits
-        return view('404', compact('sneakers', 'marques'));
+        return view('errors.404', compact('sneakers', 'marques'));
     }
 }

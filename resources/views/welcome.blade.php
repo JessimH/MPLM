@@ -61,7 +61,7 @@
     <section class="section-home container">
       <h2 class="section-title">
         <div class="draw"></div>
-        Best sellers
+        Best sellers 🔥
       </h2>
       <div class="row">
       @foreach($sneakers as $sneaker)
