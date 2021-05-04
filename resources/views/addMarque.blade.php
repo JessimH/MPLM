@@ -10,12 +10,15 @@
                 <div class="card-body">
                 <form action="/add/marque" method="POST" enctype="multipart/form-data">
                 {{ csrf_field() }}
-  <div class="form-group"> 
-    <label for="name">Nom de la marque</label>
-    <input type="text" name="name" class="form-control" id="name" placeholder="Nike">
-  </div>
-  <button type="submit" class="btn btn-primary">Créer</button>
-</form>
+                    <div class="form-group"> 
+                        <label for="name">Nom de la marque</label>
+                        <input type="text" name="name" class="form-control" id="name" placeholder="Nike">
+                        @error('name')
+                            <p class="text-danger">{{$message}}</p>
+                        @enderror
+                    </div>
+                    <button type="submit" class="btn btn-primary">Créer</button>
+                </form>
                 </div>
             </div>
         </div>

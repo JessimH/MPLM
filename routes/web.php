@@ -39,6 +39,8 @@ Route::get('/admin/modeles', 'App\Http\Controllers\HomeController@modeles')->mid
 
 Route::get('/404', 'App\Http\Controllers\NopeController@index');
 
+Route::get('/add/sneaker', 'App\Http\Controllers\SneakerController@create')->middleware(['auth']);
+
 Route::post('/add/sneaker', 'App\Http\Controllers\SneakerController@store')->middleware(['auth']);
 
 Route::get('/add/modele', 'App\Http\Controllers\ModeleController@create')->middleware(['auth']);
