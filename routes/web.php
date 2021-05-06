@@ -12,6 +12,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::auth();
+
 Route::get('/', 'App\Http\Controllers\WelcomeController@index');
 
 Route::get('/sneaker/{id}', 'App\Http\Controllers\SneakerController@index');
@@ -66,4 +69,4 @@ Route::get('/delete/marque/{id}', 'App\Http\Controllers\MarqueController@destroy
 Route::get('/delete/modele/{id}', 'App\Http\Controllers\ModeleController@destroy')->middleware(['auth']);
 Route::get('/delete/sneaker/{id}', 'App\Http\Controllers\SneakerController@destroy')->middleware(['auth']);
 
-Route::auth();
+
