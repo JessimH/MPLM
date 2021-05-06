@@ -29,7 +29,7 @@
             </li>
           </ul>
           <form method="POST" action="/search" class="d-flex search">
-          @csrf
+          {{ csrf_field() }}
             <input class="typeahead" name="search" id="search" placeholder="Chercher une SNKRS" type="text" />
             <button type="submit">
               <i class="fas fa-search"></i>
