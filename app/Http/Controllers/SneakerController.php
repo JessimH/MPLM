@@ -105,7 +105,9 @@ class SneakerController extends Controller
         ]);
 
         $marque_id = intval($request['marque']);
-        $modele_id = intval($request['marque']);
+        $modele_id = intval($request['modele']);
+
+        // dd($marque_id, $modele_id);
 
         $sneaker = new Sneaker();
         $sneaker->name = $request['name'];
@@ -113,7 +115,7 @@ class SneakerController extends Controller
         $sneaker->marques_id = $marque_id;
         $sneaker->modeles_id = $modele_id;
         $sneaker->bestseller = false;
-    
+        // dd($modele_id);
         $sneaker->save();
 
         $dernierSneaker = Sneaker::latest()->first();
@@ -191,7 +193,7 @@ class SneakerController extends Controller
         // dd($id);
         // dd($request['marque']);
         $marque_id = intval($request['marque']);
-        $modele_id = intval($request['marque']);
+        $modele_id = intval($request['modele']);
         // dd($marque_id);
         $sneaker = Sneaker::where('id', $id)->first();
         $sneaker->name = $request->name;
