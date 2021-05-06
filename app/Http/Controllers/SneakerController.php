@@ -18,8 +18,6 @@ class SneakerController extends Controller
      */
     public function index($id, Request $request)
     {
-        $sneaker = Sneaker::where('id', $id)
-                        ->first();
         
         if($request->modele){
             $modele = $request->modele;
@@ -27,6 +25,9 @@ class SneakerController extends Controller
             $modeleDb = Modele::where('name', $modele)->first();
             $sneaker = Sneaker::where('modeles_id', $modeleDb->id)->where('color', $color)->first();
             // dd($sneaker->id);
+        }else{
+            $sneaker = Sneaker::where('id', $id)
+            ->first();
         }
         
 
