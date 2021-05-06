@@ -48,6 +48,15 @@
                       <p class="text-danger">{{$message}}</p>
                     @enderror
                   </div>
+                  <div class="form-group row">
+                    <div class="col-md-12">
+                    <label for="filenames">Ajoutez vos photos (max: 4) :</label>
+                    <input type="file" id="filenames" name="filenames[]" accept="image/png, image/jpeg" multiple>
+                    @error('filenames')
+                      <p class="text-danger">{{$message}}</p>
+                    @enderror
+                    </div>
+                  </div>
                   <button type="submit" class="btn btn-primary">Créer</button>
                 </form>
                 </div>

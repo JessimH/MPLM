@@ -185,6 +185,8 @@ class SneakerController extends Controller
             'color' => 'required',
             'modele' => 'required',
             'marque' => 'required',
+            'filenames' => 'required',
+            'filenames.*' => 'mimes:png,jpeg,jpg,svg'
         ]);
         // dd($id);
         // dd($request['marque']);
@@ -196,6 +198,24 @@ class SneakerController extends Controller
         $sneaker->color = $request->color;
         $sneaker->modeles_id = $modele_id;
         $sneaker->marques_id = $marque_id;
+
+        $i = 0;
+        $id = $sneaker->id;
+        foreach ($request->file('filenames') as $file) {
+            $name = $sneaker['id'].$i.'.'.$file->extension();
+            $file->move(public_path().'/images/', $name);
+            $data[] = $name;
+            $i += 1;
+        }
+
+        $updateSneaker = Sneaker::where('id', $id)
+                        ->first(); // this point is the most important to change
+        $updateSneaker->filenames = $data;
+        $updateSneaker->photo = $data[0];
+
+        $file= new File();
+        $file->filenames=json_encode($data);
+        $file->save();
 
         $sneaker->save();
         return redirect('/admin/sneakers')
