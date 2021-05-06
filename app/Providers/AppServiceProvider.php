@@ -4,7 +4,6 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Pagination\Paginator;
-use Illuminate\Routing\UrlGenerator;
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -22,13 +21,9 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot(UrlGenerator $url)
+    public function boot()
     {
         //
-        if(env('APP_ENV') !== 'local')
-        {
-            $url->forceSchema('http');
-        }
 
         Paginator::defaultView('pagination::default');
     }
