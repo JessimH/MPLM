@@ -51,6 +51,22 @@ Route::get('/add/marque', 'App\Http\Controllers\MarqueController@create')->middl
 
 Route::post('/add/marque', 'App\Http\Controllers\MarqueController@store')->middleware(['auth']);
 
+
+
+Route::get('/update/sneaker/{id}', 'App\Http\Controllers\SneakerController@edit')->middleware(['auth']);
+
+Route::post('/update/sneaker/{id}', 'App\Http\Controllers\SneakerController@update')->middleware(['auth']);
+
+Route::get('/update/modele/{id}', 'App\Http\Controllers\ModeleController@edit')->middleware(['auth']);
+
+Route::post('/update/modele/{id}', 'App\Http\Controllers\ModeleController@update')->middleware(['auth']);
+
+Route::get('/update/marque/{id}', 'App\Http\Controllers\MarqueController@edit')->middleware(['auth']);
+
+Route::post('/update/marque/{id}', 'App\Http\Controllers\MarqueController@update')->middleware(['auth']);
+
+
+
 Route::get('/delete/marque/{id}', 'App\Http\Controllers\MarqueController@destroy')->middleware(['auth']);;
 Route::get('/delete/modele/{id}', 'App\Http\Controllers\ModeleController@destroy')->middleware(['auth']);;
 Route::get('/delete/sneaker/{id}', 'App\Http\Controllers\SneakerController@destroy')->middleware(['auth']);;

@@ -20,13 +20,14 @@
                             <th scope="col">Couleur</th>
                             <th scope="col">Modèle</th>
                             <th scope="col">Marque</th>
+                            <th scope="col">Editer</th>
                             <th scope="col">Supprimer</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($sneakers as $sneaker)
                             <tr>
-                                <th scope="row">{{$sneaker->id}}</th>
+                                <th scope="row"><img src="/images/{{$sneaker->photo}}" height="70px" alt=""></th>
                                 <td><a href="/sneaker/{{$sneaker->id}}">{{$sneaker->name}}</a></td>
                                 <th scope="col">{{$sneaker->color}}</th>
                                 <th scope="col">
@@ -35,6 +36,7 @@
                                 <th scope="col">
                                 <a href="/catalogue/{{$sneaker->marques->name}}">{{$sneaker->marques->name}}</a>
                                 </th>
+                                <td><a class="text-success" href="/update/sneaker/{{$sneaker->id}}">editer</a></td>
                                 <td><a class="text-danger" href="/delete/sneaker/{{$sneaker->id}}">supprimer</a></td>
                                 </tr>
                             @endforeach

@@ -15,6 +15,7 @@
                         <tr>
                         <th scope="col">#</th>
                         <th scope="col">Nom</th>
+                        <th scope="col">Editer</th>
                         <th scope="col">Supprimer</th>
                         </tr>
                     </thead>
@@ -23,6 +24,7 @@
                             <tr>
                                 <th scope="row">{{$marque->id}}</th>
                                 <td><a  href="/catalogue/{{$marque->name}}">{{$marque->name}}</a></td>
+                                <td><a class="text-success" href="/update/marque/{{$marque->id}}">editer</a></td>
                                 <td><a class="text-danger" href="/delete/marque/{{$marque->id}}">supprimer</a></td>
                                 </tr>
                         @endforeach

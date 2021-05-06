@@ -8,11 +8,11 @@
             <div class="card">
                 <div class="card-header"><h3>Modèles</h3></div>
                 <div class="card-body">
-                <form action="/add/modele" method="POST">
+                <form action="/update/modele/{{$modele->id}}" method="POST">
                 {{ csrf_field() }}
                   <div class="form-group"> 
                     <label for="name">Nom du modèle</label>
-                    <input type="text" name="name" class="form-control" id="name" placeholder="Air Jordan 11 retro Low">
+                    <input type="text" name="name" class="form-control" id="name" placeholder="Air Jordan 11 retro Low" value="{{$modele->name}}">
                     @error('name')
                       <p class="text-danger">{{$message}}</p>
                     @enderror

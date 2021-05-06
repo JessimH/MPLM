@@ -65,21 +65,35 @@ class MarqueController extends Controller
      * @param  \App\Models\Marque  $marque
      * @return \Illuminate\Http\Response
      */
-    public function edit(Marque $marque)
+    public function edit($id)
     {
         //
+        $marque = Marque::where('id', $id)->first();
+        // dd($marque);
+        return view('updateMarque', compact('marque')); 
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Marque  $marque
+     * @param  \App\Models\Sneakers  $sneakers
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Marque $marque)
+    public function update(Request $request, $id)
     {
         //
+        $request->validate([
+            'name' => 'required',
+        ]);
+
+        // dd($id);
+        $marque = Marque::where('id', $id)->first();
+        $marque->name = $request->name;
+        $marque->save();
+
+        return redirect('/admin/marques')
+                ->with('success','Votre marque à bien été modifié!');
     }
 
     /**

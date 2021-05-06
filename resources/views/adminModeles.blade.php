@@ -17,6 +17,7 @@
                         <th scope="col">#</th>
                         <th scope="col">Nom</th>
                         <th scope="col">Marque</th>
+                        <th scope="col">Editer</th>
                         <th scope="col">Supprimer</th>
                         </tr>
                     </thead>
@@ -26,6 +27,7 @@
                                 <th scope="row">{{$modele->id}}</th>
                                 <td><a href="/catalogue/{{$modele->name}}">{{$modele->name}}</a></td>
                                 <td><a href="/catalogue/{{$modele->marques->name}}">{{$modele->marques->name}}</a></td>
+                                <td><a class="text-success" href="/update/modele/{{$modele->id}}">editer</a></td>
                                 <td><a class="text-danger" href="/delete/modele/{{$modele->id}}">supprimer</a></td>
                                 </tr>
                         @endforeach

@@ -77,21 +77,40 @@ class ModeleController extends Controller
      * @param  \App\Models\Modele  $modele
      * @return \Illuminate\Http\Response
      */
-    public function edit(Modele $modele)
+    public function edit($id)
     {
         //
+        $modele = Modele::where('id', $id)->first();
+        $marques = Marque::orderBy('name')->get();
+
+        // dd($modele->name);
+
+        return view('updateModele', compact(['modele','marques']));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Modele  $modele
+     * @param  \App\Models\Sneakers  $sneakers
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Modele $modele)
+    public function update(Request $request, $id)
     {
         //
+        $request->validate([
+            'name' => 'required',
+            'marque' => 'required'
+        ]);
+
+        $marque_id = intval($request['marque']);
+        $modele = Modele::where('id', $id)->first();
+        $modele->name = $request->name;
+        $modele->marques_id = $marque_id;
+        $modele->save();
+        
+        return redirect('/admin/modeles')
+                ->with('success','Votre modèle à bien été modifié!');
     }
 
     /**

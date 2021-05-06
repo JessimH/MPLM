@@ -6,13 +6,13 @@
         <div class="col col-12">
         <a href="/admin/marques" type="button">Retour a la liste des marques</a>
             <div class="card">
-                <div class="card-header"><h3>Marque</h3></div>
+                <div class="card-header"><h3>{{$marque->name}}</h3></div>
                 <div class="card-body">
-                <form action="/add/marque" method="POST" enctype="multipart/form-data">
+                <form action="/update/marque/{{$marque->id}}" method="POST" enctype="multipart/form-data">
                 {{ csrf_field() }}
                     <div class="form-group"> 
                         <label for="name">Nom de la marque</label>
-                        <input type="text" name="name" class="form-control" id="name" placeholder="Nike">
+                        <input type="text" name="name" class="form-control" id="name" placeholder="Nike" value="{{$marque->name}}">
                         @error('name')
                             <p class="text-danger">{{$message}}</p>
                         @enderror

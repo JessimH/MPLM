@@ -156,9 +156,16 @@ class SneakerController extends Controller
      * @param  \App\Models\Sneakers  $sneakers
      * @return \Illuminate\Http\Response
      */
-    public function edit(Sneaker $sneakers)
+    public function edit($id)
     {
         //
+        $sneaker = Sneaker::where('id', $id)->first();
+        $modeles = Modele::orderBy('name')->get();
+        $marques = Marque::orderBy('name')->get();
+
+        // dd($sneaker->name);
+
+        return view('updateSneaker', compact(['modeles', 'sneaker', 'marques']));
     }
 
     /**
@@ -168,9 +175,30 @@ class SneakerController extends Controller
      * @param  \App\Models\Sneakers  $sneakers
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Sneaker $sneakers)
+    public function update(Request $request, $id)
     {
         //
+        $request->validate([
+            'name' => 'required',
+            'color' => 'required',
+            'modele' => 'required',
+            'marque' => 'required',
+        ]);
+        // dd($id);
+        // dd($request['marque']);
+        $marque_id = intval($request['marque']);
+        $modele_id = intval($request['marque']);
+        // dd($marque_id);
+        $sneaker = Sneaker::where('id', $id)->first();
+        $sneaker->name = $request->name;
+        $sneaker->color = $request->color;
+        $sneaker->modeles_id = $modele_id;
+        $sneaker->marques_id = $marque_id;
+
+        $sneaker->save();
+        return redirect('/admin/sneakers')
+        ->with('success','Votre Sneaker à bien été modifié!');
+        
     }
 
     /**
