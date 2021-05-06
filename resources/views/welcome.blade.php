@@ -63,6 +63,7 @@
         <div class="draw"></div>
         Best sellers 🔥
       </h2>
+      <a href="/catalogue" class="btn btn-primary btn" style="width: 250px; margin-left: 5vw; margin-bottom: 20px; background-color: #8F6C51; border:none;"> voir toutes les paires MPLM</a>
       <div class="row">
       @foreach($sneakers as $sneaker)
         <a href="/sneaker/{{$sneaker->id}}" class="snkr-card col-2 col-sm-6">
