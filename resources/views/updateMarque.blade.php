@@ -9,7 +9,7 @@
                 <div class="card-header"><h3>{{$marque->name}}</h3></div>
                 <div class="card-body">
                 <form action="/update/marque/{{$marque->id}}" method="POST" enctype="multipart/form-data">
-                {{ csrf_field() }}
+                @csrf
                     <div class="form-group"> 
                         <label for="name">Nom de la marque</label>
                         <input type="text" name="name" class="form-control" id="name" placeholder="Nike" value="{{$marque->name}}">

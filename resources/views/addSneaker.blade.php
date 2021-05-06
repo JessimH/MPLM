@@ -9,7 +9,7 @@
                 <div class="card-header"><h3>Sneakers</h3></div>
                 <div class="card-body">
                 <form action="/add/sneaker" method="POST" enctype="multipart/form-data">
-                {{ csrf_field() }}
+                @csrf
                   <div class="form-group"> 
                     <label for="name">Nom de la sneaker</label>
                     <input type="text" name="name" class="form-control" id="name" placeholder="Jordan 11 retro Low Legend Blue">

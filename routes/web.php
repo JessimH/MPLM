@@ -25,8 +25,6 @@ Route::get('/catalogue/{filter}', 'App\Http\Controllers\CatalogueController@filt
 Route::post('/search', 'App\Http\Controllers\CatalogueController@search');
 Route::get('/search', 'App\Http\Controllers\CatalogueController@search');
 
-Route::auth();
-
 Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
 
 Route::get('/admin/sneakers', 'App\Http\Controllers\HomeController@sneakers')->middleware(['auth']);
@@ -52,7 +50,6 @@ Route::get('/add/marque', 'App\Http\Controllers\MarqueController@create')->middl
 Route::post('/add/marque', 'App\Http\Controllers\MarqueController@store')->middleware(['auth']);
 
 
-
 Route::get('/update/sneaker/{id}', 'App\Http\Controllers\SneakerController@edit')->middleware(['auth']);
 
 Route::post('/update/sneaker/{id}', 'App\Http\Controllers\SneakerController@update')->middleware(['auth']);
@@ -65,8 +62,8 @@ Route::get('/update/marque/{id}', 'App\Http\Controllers\MarqueController@edit')-
 
 Route::post('/update/marque/{id}', 'App\Http\Controllers\MarqueController@update')->middleware(['auth']);
 
+Route::get('/delete/marque/{id}', 'App\Http\Controllers\MarqueController@destroy')->middleware(['auth']);
+Route::get('/delete/modele/{id}', 'App\Http\Controllers\ModeleController@destroy')->middleware(['auth']);
+Route::get('/delete/sneaker/{id}', 'App\Http\Controllers\SneakerController@destroy')->middleware(['auth']);
 
-
-Route::get('/delete/marque/{id}', 'App\Http\Controllers\MarqueController@destroy')->middleware(['auth']);;
-Route::get('/delete/modele/{id}', 'App\Http\Controllers\ModeleController@destroy')->middleware(['auth']);;
-Route::get('/delete/sneaker/{id}', 'App\Http\Controllers\SneakerController@destroy')->middleware(['auth']);;
+Route::auth();
