@@ -43,6 +43,23 @@
                 @endforeach
               </ul>
             </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                style="color: white"
+              >
+                Modeles
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                @foreach($modeles as $modele)
+                  <li><a class="dropdown-item" href="/catalogue/{{$modele->name}}">{{$modele->name}}</a></li>
+                @endforeach
+              </ul>
+            </li>
           </ul>
           <form method="POST" action="/search" class="d-flex search">
           {{ csrf_field() }}
@@ -54,6 +71,7 @@
         </div>
       </div>
 </nav>
+
 
 <section class="section-home container">
       <h2 class="section-title">

@@ -60,8 +60,9 @@ class SneakerController extends Controller
             }
 
             $marques = Marque::orderBy('name')->get();
+            $modeles = Modele::orderBy('name')->get();
 
-            return view('sneaker', compact('sneaker', 'images', 'colors', 'marques'));
+            return view('sneaker', compact('sneaker', 'images', 'colors', 'marques', 'modeles'));
         }
         else{
             return redirect('/')

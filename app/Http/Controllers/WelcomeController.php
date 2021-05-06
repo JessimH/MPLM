@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Sneaker;
 use App\Models\Marque;
+use App\Models\Modele;
 class WelcomeController extends Controller
 {
     //
@@ -13,7 +14,8 @@ class WelcomeController extends Controller
         $sneakers = Sneaker::where('bestseller', true)->get();
 
         $marques = Marque::orderBy('name')->get();
+        $modeles = Modele::orderBy('name')->get();
         //retourner tout les produits
-        return view('welcome', compact('sneakers', 'marques'));
+        return view('welcome', compact('sneakers', 'marques', 'modeles'));
     }
 }

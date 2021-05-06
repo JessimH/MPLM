@@ -16,9 +16,10 @@ class CatalogueController extends Controller
         $sneakers = Sneaker::orderBy('name')->get();
         $filtre = false;
         $marques = Marque::orderBy('name')->get();
+        $modeles = Modele::orderBy('name')->get();
 
         //retourner tout les produits
-        return view('catalogue', compact('sneakers', 'filtre', 'marques'));   
+        return view('catalogue', compact('sneakers', 'filtre', 'marques', 'modeles'));   
     }
 
     public function search(Request $request)
@@ -30,8 +31,9 @@ class CatalogueController extends Controller
         if (count($sneakers) > 0) {
             $filtre = $request->search;
             $marques = Marque::orderBy('name')->get();
+            $modeles = Modele::orderBy('name')->get();
 
-            return view('search', compact('sneakers', 'filtre', 'marques'));
+            return view('search', compact('sneakers', 'filtre', 'marques', 'modeles'));
         }
 
         else {
@@ -49,15 +51,16 @@ class CatalogueController extends Controller
     {
         $marque = Marque::where('name', $filtre)->first();
         $modele = Modele::where('name', $filtre)->first();
+        $modeles = Modele::orderBy('name')->get();
         if($marque){
             $sneakers = Sneaker::where('marques_id', $marque->id)->get();
             $marques = Marque::orderBy('name')->get();
-            return view('catalogue', compact('sneakers', 'filtre', 'marques'));   
+            return view('catalogue', compact('sneakers', 'filtre', 'marques', 'modeles'));   
         }
         elseif($modele){
             $sneakers = Sneaker::where('modeles_id', $modele->id)->get();
             $marques = Marque::orderBy('name')->get();
-            return view('catalogue', compact('sneakers', 'filtre', 'marques'));   
+            return view('catalogue', compact('sneakers', 'filtre', 'marques', 'modeles'));   
         }
         else{
             return redirect('/')->with('error','La filtre demandé ne retourne aucun produit.');
