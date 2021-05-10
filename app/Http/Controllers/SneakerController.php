@@ -205,8 +205,6 @@ class SneakerController extends Controller
             'color' => 'required',
             'modele' => 'required',
             'marque' => 'required',
-            'filenames' => 'required',
-            'filenames.*' => 'mimes:png,jpeg,jpg,svg'
         ]);
         // dd($id);
         // dd($request['marque']);
@@ -219,27 +217,29 @@ class SneakerController extends Controller
         $sneaker->modeles_id = $modele_id;
         $sneaker->marques_id = $marque_id;
 
-        $i = 0;
-        $id = $sneaker->id;
-        foreach ($request->file('filenames') as $file) {
-            $name = $sneaker['id'].$i;
-            $file->move(public_path().'/images/', $name);
-            $cloudinary = new UploadApi();
-            $upload = $cloudinary->upload(public_path().'/images/'.$name,  $options = [
-                "public_id" => $name
-            ]);
-            $name = $upload['url'];
-            $data[] = $name;
-            $i += 1;
+        if($request->file('filenames')){
+            $i = 0;
+            $id = $sneaker->id;
+            foreach ($request->file('filenames') as $file) {
+                $name = $sneaker['id'].$i;
+                $file->move(public_path().'/images/', $name);
+                $cloudinary = new UploadApi();
+                $upload = $cloudinary->upload(public_path().'/images/'.$name,  $options = [
+                    "public_id" => $name
+                ]);
+                $name = $upload['url'];
+                $data[] = $name;
+                $i += 1;
+            }
+    
+            $updateSneaker = Sneaker::where('id', $id)
+                            ->first(); // this point is the most important to change
+            // dd($updateSneaker->filenames);
+            $updateSneaker->filenames = $data;
+            $updateSneaker->photo = $data[0];
+            $updateSneaker->save();
         }
-
-        $updateSneaker = Sneaker::where('id', $id)
-                        ->first(); // this point is the most important to change
-        // dd($updateSneaker->filenames);
-        $updateSneaker->filenames = $data;
-        $updateSneaker->photo = $data[0];
-
-        $updateSneaker->save();
+        
         $sneaker->save();
         return redirect('/admin/sneakers')
         ->with('success','Votre Sneaker à bien été modifié!');
