@@ -8,6 +8,8 @@ use App\Models\File;
 use App\Models\Marque;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
+use Cloudinary\Api\Upload\UploadApi;
+use Cloudinary\Configuration\Configuration;
 
 class SneakerController extends Controller
 {
@@ -33,18 +35,20 @@ class SneakerController extends Controller
 
         if($sneaker){
             $result = $sneaker;
-            $result_images = rtrim($result->filenames, ' ]');
-            $result_images = substr($result_images, 1);
-            $result_images = explode(",", $result_images);
-            $images = [];
-            foreach ($result_images as $image){
-                $image = rtrim($image, '"');
-                $image = substr($image, 1);
-                array_push($images, $image);
-            }
-            // $images = $result->filenames;
+            // $result_images = rtrim($result->filenames, ' ]');
+            // $result_images = substr($result_images, 1);
+            // $result_images = explode(",", $result_images);
+            // $images = [];
+            // foreach ($result_images as $image){
+            //     $image = rtrim($image, '"');
+            //     $image = substr($image, 1);
+            //     // $image = str_replace( '/', '', $image);
+            //     // dd($image);
+            //     array_push($images, $image);
+            // }
+            $images = json_decode($result->filenames);
             // dd($images);
-
+            
             $modele = Modele::where('id', $sneaker->modeles_id)->first();
             $sneakers = Sneaker::where('modeles_id', $modele->id)
             ->get();
@@ -95,6 +99,11 @@ class SneakerController extends Controller
     public function store(Request $request)
     {
         //
+        $config = Configuration::instance();
+        $config->cloud->cloudName = 'mplm';
+        $config->cloud->apiKey = '663861176855196';
+        $config->cloud->apiSecret = 'WecuSeCQ-U_fEuRFPPSLwmd136U';
+
         $request->validate([
             'name' => 'required',
             'color' => 'required',
@@ -123,21 +132,24 @@ class SneakerController extends Controller
         $i = 0;
         $id = $dernierSneaker->id;
         foreach ($request->file('filenames') as $file) {
-            $name = $dernierSneaker['id'].$i.'.'.$file->extension();
+            $name = $dernierSneaker['id'].$i;
             $file->move(public_path().'/images/', $name);
+            $cloudinary = new UploadApi();
+            $upload = $cloudinary->upload(public_path().'/images/'.$name,  $options = [
+                "public_id" => $name
+            ]);
+            $name = $upload['url'];
             $data[] = $name;
+            // dd($data);
             $i += 1;
         }
 
         $updateSneaker = Sneaker::where('id', $id)
-                        ->first(); // this point is the most important to change
+        ->first(); // this point is the most important to change
         $updateSneaker->filenames = $data;
         $updateSneaker->photo = $data[0];
         $updateSneaker->save();
-
-        $file= new File();
-        $file->filenames=json_encode($data);
-        $file->save();
+        // dd($updateSneaker->filenames);
 
         return redirect('/admin/sneakers')
                 ->with('success','Votre Sneaker à bien été ajouté.');
@@ -182,6 +194,12 @@ class SneakerController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $config = Configuration::instance();
+        $config->cloud->cloudName = 'mplm';
+        $config->cloud->apiKey = '663861176855196';
+        $config->cloud->apiSecret = 'WecuSeCQ-U_fEuRFPPSLwmd136U';
+
+
         $request->validate([
             'name' => 'required',
             'color' => 'required',
@@ -204,21 +222,24 @@ class SneakerController extends Controller
         $i = 0;
         $id = $sneaker->id;
         foreach ($request->file('filenames') as $file) {
-            $name = $sneaker['id'].$i.'.'.$file->extension();
+            $name = $sneaker['id'].$i;
             $file->move(public_path().'/images/', $name);
+            $cloudinary = new UploadApi();
+            $upload = $cloudinary->upload(public_path().'/images/'.$name,  $options = [
+                "public_id" => $name
+            ]);
+            $name = $upload['url'];
             $data[] = $name;
             $i += 1;
         }
 
         $updateSneaker = Sneaker::where('id', $id)
                         ->first(); // this point is the most important to change
+        // dd($updateSneaker->filenames);
         $updateSneaker->filenames = $data;
         $updateSneaker->photo = $data[0];
 
-        $file= new File();
-        $file->filenames=json_encode($data);
-        $file->save();
-
+        $updateSneaker->save();
         $sneaker->save();
         return redirect('/admin/sneakers')
         ->with('success','Votre Sneaker à bien été modifié!');

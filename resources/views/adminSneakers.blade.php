@@ -27,7 +27,7 @@
                         <tbody>
                             @foreach($sneakers as $sneaker)
                             <tr>
-                                <th scope="row"><img src="/images/{{$sneaker->photo}}" height="70px" alt=""></th>
+                                <th scope="row"><img src="{{$sneaker->photo}}" height="70px" alt=""></th>
                                 <td><a href="/sneaker/{{$sneaker->id}}">{{$sneaker->name}}</a></td>
                                 <th scope="col">{{$sneaker->color}}</th>
                                 <th scope="col">

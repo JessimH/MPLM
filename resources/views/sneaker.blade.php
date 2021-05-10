@@ -98,11 +98,11 @@
       </div>
       <div class="row products">
         @foreach ($images as $image)
-          <a href="/images/{{$image}}" target="_blanck" class="snkr-product col-4 col-sm-6">
+          <a href="{{$image}}" target="_blanck" class="snkr-product col-4 col-sm-6">
             <div
               class="snkr-picture"
               style="
-                background: url(/images/{{$image}});
+                background: url({{$image}});
                 background-position: center;
                 background-size: cover;
               "

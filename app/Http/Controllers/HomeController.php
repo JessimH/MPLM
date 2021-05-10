@@ -9,7 +9,6 @@ use App\Models\Sneaker;
 
 
 
-
 class HomeController extends Controller
 {
     /**

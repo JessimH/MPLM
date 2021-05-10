@@ -89,7 +89,7 @@
             <div
               class="snkr-pic"
               style="
-                background: url(/images/{{$sneaker->photo}});
+                background: url({{$sneaker->photo}});
                 background-position: center;
                 background-size: cover;
               "
