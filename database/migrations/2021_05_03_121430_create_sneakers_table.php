@@ -17,8 +17,8 @@ class CreateSneakersTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('color');
-            $table->string('photo')->nullable();
-            $table->string('filenames')->nullable();
+            $table->string('photo', 255)->nullable();
+            $table->json('filenames')->nullable();
             $table->string('bestseller')->nullable();
             $table->timestamps();
 
